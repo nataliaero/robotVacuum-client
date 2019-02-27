@@ -21,7 +21,7 @@ export class ApiClientService {
   }
 
   searchRobot(name: string): Observable<Robot[]> {
-    const url = this.apiUrl + `/search?q=${name}`;
+    const url = this.apiUrl + `/search/${name}`;
     return this.http.get<Robot[]>(url);
   }
 
