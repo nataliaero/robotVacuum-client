@@ -25,4 +25,27 @@
       <p [innerHTML]="robot.descriptionCard3" ></p>
     </div>
   </div>
+
+  <table class="table table-hover center">
+    <thead>
+      <tr><th class="table-header">Characteristics</th><th class="table-header">Values</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>Weight</th><th>{{robot.tableProps.weight}}</th></tr>
+      <tr><th>Dimensions</th><th>{{robot.tableProps.dimensions}}</th></tr>
+      <tr><th>Trash Capacity</th><th>{{robot.tableProps.capacityTrash}}</th></tr>
+      <tr><th>Water Capacity</th><th>{{robot.tableProps.capacityWater}}</th></tr>
+      <tr><th>Noise</th><th>{{robot.tableProps.noise}}</th></tr>
+      <tr><th>Autonomy</th><th>{{robot.tableProps.autonomy}}</th></tr>
+      <tr><th>Charge Time</th><th>{{robot.tableProps.chargeTime}}</th></tr>
+      <tr><th>Nominal Power</th><th>{{robot.tableProps.nominalPower}}</th></tr>
+      <tr><th>Suction Power</th><th>{{robot.tableProps.suctionPower}}</th></tr>
+      <tr><th>Programmable</th><th>{{robot.tableProps.programmable}}</th></tr>
+      <tr><th>Anti-fall system</th><th>{{robot.tableProps.avoidsFall}}</th></tr>
+      <tr><th>Anti-collision system</th><th>{{robot.tableProps.anticollisionSystem}}</th></tr>
+      <tr><th>Remote control system</th><th>{{robot.tableProps.remoteControl}}</th></tr>
+      <tr><th>Mobile app</th><th>{{robot.tableProps.appMobile}}</th></tr>
+    </tbody>
+
+  </table>
 </div>
