@@ -20,6 +20,11 @@ export class ApiClientService {
     return this.http.get<Robot[]>(this.apiUrl + '/robots');
   }
 
+  getOneRobot(id: number): Observable<Robot> {
+    const url = this.apiUrl + `/robot/${id}`;
+    return this.http.get<Robot>(url);
+  }
+
   searchRobot(name: string): Observable<Robot[]> {
     const url = this.apiUrl + `/search/${name}`;
     return this.http.get<Robot[]>(url);
