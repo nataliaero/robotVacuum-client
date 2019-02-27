@@ -12,6 +12,7 @@ orange #EE6002*/
   background-color: rgb(236, 238, 235);
   width: 100vw;
   height: 100px;
+  padding: 0 10%;
 }
 
 .logoBox {
@@ -19,7 +20,6 @@ orange #EE6002*/
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding-left: 7rem;
 }
 
 .logoCat {
@@ -39,7 +39,6 @@ orange #EE6002*/
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 7rem;
 }
 
 .subMenuBox {

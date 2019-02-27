@@ -1,3 +1,5 @@
-<div class="robotDashboard">
-  <p>HOLA</p>
+<div class="robotDashboard" *ngIf="robot">
+  <p class="title">{{robot.name}}</p>
+  <p class="subtitle">{{robot.subtitle}}</p>
+  <hr>
 </div>

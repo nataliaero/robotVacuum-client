@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="robotList">
+  <div class="robotList" *ngIf="robots">
       <div *ngFor="let robot of robots">
         <div class="card card-style">
           <!-- <img src="{{robot.image}}" alt="robot portay image"> -->
