@@ -1,0 +1,55 @@
+/* blueColor rgb(104, 180, 201)
+lightBlueColor rgb(172, 212, 220)
+lightGrey rbg(236, 238, 235)
+orange rbg(238, 120, 70) */
+
+.headerBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(236, 238, 235);
+  width: 100vw;
+  height: 40vh;
+}
+
+.logoBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 7rem;
+}
+
+.logoCat {
+  width: 3.5rem;
+  height: 5rem;
+  margin-right: 2rem;
+}
+
+.titleLogo {
+  font-family: "Rancho";
+  font-size: 4rem;
+  color: #2E3B4E;
+}
+
+.menuBox {
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 7rem;
+}
+
+.subMenuBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.iconStyle {
+  color: #2E3B4E;
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
