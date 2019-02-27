@@ -31,14 +31,70 @@
 
 .jumbotron-title {
   font-size: 4.5rem;
-  color: #2E3B4E;
 }
 
 .jumbotron-subtitle{
   margin-top: 1rem;
   font-size: 2rem;
-  color: #2E3B4E;
 }
+
+.robotList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-style {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #2E3B4E;
+  border-radius: 1px 35px 24px 35px;
+  max-width: 50rem;
+  background-color: #fff;
+  padding: 15px;
+}
+
+.card-image {
+  width: 50%;
+}
+
+.card-data-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-title {
+  font-size: 2.3rem;
+  margin-bottom: 5px;
+}
+
+.card-btn-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.card-btn {
+  font-family: Montserrat;
+  font-size: 2rem;
+  background-color: rgba(238, 120, 70);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: #e0752f;
+}
+
 
 @media only screen and (max-width: 550px) {
   .jumbotron {

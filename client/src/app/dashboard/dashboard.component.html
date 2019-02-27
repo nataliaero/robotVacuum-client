@@ -8,7 +8,22 @@
     <div class="jumbotron-search">
 
     </div>
-
   </div>
+
+  <div class="robotList">
+      <div *ngFor="let robot of robots">
+        <div class="card card-style">
+          <!-- <img src="{{robot.image}}" alt="robot portay image"> -->
+          <p class="card-image">Image</p>
+          <div class="card-data-style">
+            <p class="card-title">{{robot.name}}</p>
+            <p class="card-description">{{robot.description}}</p>
+            <div class="card-btn-box">
+              <button type="button" class="card-btn">Read more</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
 
