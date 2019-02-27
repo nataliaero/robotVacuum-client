@@ -16,6 +16,10 @@ body {
   box-sizing: border-box;
 }
 
+.icon-bar {
+  width: 5px;
+}
+
 @media only screen and (max-width: 750px) {
   html {
     font-size: 58%; /* 10px/16px */
