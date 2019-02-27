@@ -4,12 +4,13 @@ lightGrey rbg(236, 238, 235)
 orange rbg(238, 120, 70) */
 
 .headerBox {
+  position: fixed;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   background-color: rgb(236, 238, 235);
   width: 100vw;
-  height: 40vh;
+  height: 100px;
 }
 
 .logoBox {
