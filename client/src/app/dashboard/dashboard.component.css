@@ -6,10 +6,52 @@
 }
 
 .jumbotron {
-  background-image: url("../../assets/images/jumbotronImage.jpg");
+  background-image:linear-gradient(
+    to right bottom,
+    rgba(238, 120, 70, 0.8),
+    rgb(236, 238, 235, 0.6)),
+    url("../../assets/images/jumbotronImage.jpg");
   background-size: cover;
   background-position: bottom;
-  padding: 0 7rem;
+  padding: 0 5rem;
   margin: 0 7rem;
-  height: 100vh;
+  height: 50vh;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.jumbotron-text {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  width: 80%;
+}
+
+.jumbotron-title {
+  font-size: 4.5rem;
+  color: #2E3B4E;
+}
+
+.jumbotron-subtitle{
+  margin-top: 1rem;
+  font-size: 2rem;
+  color: #2E3B4E;
+}
+
+@media only screen and (max-width: 550px) {
+  .jumbotron {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .jumbotron-text {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 100%;
+  }
+
 }

@@ -9,6 +9,9 @@ import { RobotVacuumComponent } from './robot-vacuum/robot-vacuum.component';
 import { Top10Component } from './top10/top10.component';
 import { LoginComponent } from './login/login.component';
 
+import { MatMenuModule } from '@angular/material/menu';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,9 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatMenuModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,3 +14,21 @@ body {
   font-size: 1.6rem;
   box-sizing: border-box;
 }
+
+@media only screen and (max-width: 750px) {
+  html {
+    font-size: 58%; /* 10px/16px */
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  html {
+    font-size: 50%; /* 10px/16px */
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  html {
+    font-size: 45%; /* 10px/16px */
+  }
+}
