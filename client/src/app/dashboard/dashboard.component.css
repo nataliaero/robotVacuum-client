@@ -132,7 +132,7 @@ button:hover {
   }
 }
 
-@media only screen and (max-height: 800px) {
+@media only screen and (max-height: 800px) and (max-width: 800px) {
   .jumbotron-subtitle {
     display: none;
   }

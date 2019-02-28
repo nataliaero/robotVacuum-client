@@ -1,0 +1,62 @@
+.top10Dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(236, 238, 235);
+  padding-top: 100px;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.title {
+  color: rgba(238, 120, 70);
+  font-size: 4rem;
+}
+
+.subtitle {
+  font-size: 2.5rem;
+}
+
+hr {
+  border-width: 1px;
+  color: rgb(204, 209, 216);
+  border-style: solid;
+  width: 80%;
+  margin: 25px 0;
+}
+
+.card-style {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  width: 80%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #2E3B4E;
+  margin-bottom: 25px;
+}
+
+.card-border {
+  border-radius: 1px 35px 24px 35px;
+}
+
+.card-data {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2rem 5rem 2rem 2rem;
+}
+
+.card-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: rgba(238, 120, 70);
+}
+
+.card-img {
+  width: 30rem;
+  padding: 2rem 5rem 2rem 5rem;
+}

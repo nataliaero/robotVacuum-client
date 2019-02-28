@@ -41,7 +41,7 @@ a:hover{
 }
 
 hr {
-  border-width: 0.5px;
+  border-width: 1px;
   color: rgb(204, 209, 216);
   border-style: solid;
   width: 80%;
@@ -59,7 +59,6 @@ hr {
   border-style: solid;
   border-width: 1px;
   border-color: #2E3B4E;
-
   margin-bottom: 25px;
 }
 

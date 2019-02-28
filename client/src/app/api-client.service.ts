@@ -25,6 +25,11 @@ export class ApiClientService {
     return this.http.get<Robot>(url);
   }
 
+  getTop10Robots(): Observable<Robot[]> {
+    const url = this.apiUrl + `/robots/top10`;
+    return this.http.get<Robot[]>(url);
+  }
+
   searchRobot(name: string): Observable<Robot[]> {
     const url = this.apiUrl + `/search/${name}`;
     return this.http.get<Robot[]>(url);

@@ -49,7 +49,6 @@ hr {
 
 .colorText {
   color: rgb(46, 59, 78);
-  /* //46, 59, 78 */
 }
 
 p:hover, i:hover {
@@ -69,6 +68,7 @@ button:focus {outline:0;}
 .titleLogo {
   font-family: "Rancho";
   font-size: 4rem;
+  margin-top: 10px;
 }
 
 .menuBox {
@@ -89,7 +89,12 @@ button:focus {outline:0;}
 .iconStyle {
   font-size: 2rem;
   margin-right: 0.6rem;
-  margin-top: -1rem;
+  margin-top: 8px;
+}
+
+.textMenu{
+  margin-top: 20px;
+  font-size: 2rem;
 }
 
 .menuBox-reduced {
