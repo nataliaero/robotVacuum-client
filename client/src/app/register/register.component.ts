@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NewUser } from '../shared/NewUser';
 import { ApiClientService } from '../api-client.service';
 
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
 
 @Component({
@@ -13,7 +13,12 @@ import { MatDialogRef } from '@angular/material';
 })
 export class RegisterComponent implements OnInit {
 
-  form = new FormControl('');
+  registrationForm = new FormGroup({
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    firstname: new FormControl('', Validators.required),
+    lastname: new FormControl('', Validators.required),
+  });
   user: NewUser = {
     username: '',
     password: '',
