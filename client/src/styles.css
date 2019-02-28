@@ -22,9 +22,9 @@ body {
   width: 5px;
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 800px) {
   html {
-    font-size: 58%; /* 10px/16px */
+    font-size: 55%; /* 10px/16px */
   }
 }
 
@@ -37,5 +37,11 @@ body {
 @media only screen and (max-width: 450px) {
   html {
     font-size: 45%; /* 10px/16px */
+  }
+}
+
+@media only screen and (max-height: 600px) {
+  html {
+    font-size: 40%; /* 10px/16px */
   }
 }

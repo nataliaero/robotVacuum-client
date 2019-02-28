@@ -1,6 +1,7 @@
 .dashboard {
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: rgb(236, 238, 235);
   padding-top: 100px;
   height: 100%;
@@ -16,7 +17,7 @@
   background-size: cover;
   background-position: bottom;
   padding: 0 5rem;
-  margin: 0 10%;
+  width: 80%;
   height: 35vh;
   display: flex;
   flex-direction: row;
@@ -57,7 +58,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 7rem;
+  align-items: center;
+  width: 80%;
 }
 
 .card-style {
@@ -115,7 +117,7 @@ button:hover {
 }
 
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 800px) {
   .jumbotron {
     display: flex;
     flex-direction: column;
@@ -127,6 +129,12 @@ button:hover {
     justify-content: center;
     align-items: left;
     width: 100%;
+  }
+}
+
+@media only screen and (max-height: 800px) {
+  .jumbotron-subtitle {
+    display: none;
   }
 
 }
