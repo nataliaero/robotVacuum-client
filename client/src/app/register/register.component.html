@@ -1,3 +1,36 @@
-<p>
-  register works!
-</p>
+<div class="registerForm">
+
+  <div class="header">
+    <p class="register-title">Register</p>
+    <button class="closeButton" mat-dialog-close>&times;</button>
+  </div>
+
+  <form novalidate (ngSubmit)="onSubmit()">
+
+    <div class="formLine">
+      <p class="text">First Name:</p>
+      <input class="input-style" type="text" placeholder="enter firstname..." [(ngModel)]="user.firstname" name="firstname">
+    </div>
+
+    <div class="formLine">
+      <p class="text">Last Name:</p>
+      <input class="input-style"  type="text" placeholder="enter lastname..." [(ngModel)]="user.lastname" name="lastname">
+    </div>
+
+    <div class="formLine">
+      <p class="text">Username:</p>
+      <input class="input-style" type="text" placeholder="enter username..." [(ngModel)]="user.username" name="username">
+    </div>
+
+    <div class="formLine">
+      <p class="text">Password:</p>
+      <input class="input-style"  type="text" placeholder="enter password..." [(ngModel)]="user.password" name="password">
+    </div>
+
+    <div class="buttonsBottom">
+      <button type="submit" class="buttonForm">Register</button>
+      <button (click)="closeForm()" class="buttonForm">Cancel</button>
+    </div>
+  </form>
+
+</div>

@@ -1,0 +1,68 @@
+.registerForm {
+  background-color: rgb(236, 238, 235);
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 3rem;
+  background-color: rgb(238, 120, 70);
+  margin-bottom: 10%;
+}
+
+.register-title {
+  font-family: Montserrat;
+  font-size: 2.5rem;
+  color: rgb(236, 238, 235);
+}
+
+.closeButton {
+  background-color: rgb(236, 238, 235);
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  font-size: 1.5rem;
+  outline: none;
+}
+
+.formLine {
+  margin: 10% 0 0 0;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+.text {
+  font-size: 1.7rem;
+  margin-right: 1.5rem;
+  width: 15rem;
+  align-self: center;
+}
+
+.input-style {
+  font-family: Montserrat;
+  font-size: 1.7rem;
+}
+
+.buttonsBottom {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10% 0;
+}
+
+.buttonForm {
+  background-color: rgb(238, 120, 70);
+  font-family: Montserrat;
+  color: rgb(236, 238, 235);
+  font-size: 1.7rem;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-right: 1rem;
+}

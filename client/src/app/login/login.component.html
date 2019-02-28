@@ -5,19 +5,39 @@
     <button class="closeButton" mat-dialog-close>&times;</button>
   </div>
 
-  <form novalidate (ngSubmit)="onSubmit()">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
     <div class="formLine">
       <p class="text">Username:</p>
-      <input class="input-style" type="text" placeholder="enter username..." [(ngModel)]="user.username" name="username">
+      <input
+      class="input-style"
+      type="text"
+      formControlName="username">
     </div>
+    <div *ngIf="loginForm.controls.username.errors" >
+      <div *ngIf="loginForm.controls.username.errors.required" >
+        <p class="errorForm">Username is required</p>
+      </div>
+    </div>
+
+
 
     <div class="formLine">
       <p class="text">Password:</p>
-      <input class="input-style"  type="text" placeholder="enter password..." [(ngModel)]="user.password" name="password">
+      <input class="input-style"
+      type="text"
+      formControlName="password">
+    </div>
+    <div *ngIf="loginForm.controls.password.errors" >
+      <div *ngIf="loginForm.controls.password.errors.required" >
+        <p class="errorForm">Password is required</p>
+      </div>
     </div>
 
     <div class="buttonsBottom">
-      <button type="submit" class="buttonForm">Login</button>
+      <button type="submit" class="buttonForm" [disabled]="!loginForm.valid">
+        Login
+      </button>
       <button (click)="openForm()" class="buttonForm">Register</button>
     </div>
 

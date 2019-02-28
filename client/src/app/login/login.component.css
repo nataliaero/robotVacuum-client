@@ -29,13 +29,12 @@
   outline: none;
 }
 
+
 .formLine {
   margin: 10% 0 0 0;
   padding: 0 1rem;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-content: center;
 }
 
 .text {
@@ -43,6 +42,12 @@
   margin-right: 1.5rem;
   width: 15rem;
   align-self: center;
+}
+
+.errorForm {
+  font-size: 1rem;
+  color: red;
+  margin-left: 1rem;
 }
 
 .input-style {

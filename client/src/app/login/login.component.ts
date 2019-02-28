@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
 
 import { User } from '../shared/User';
@@ -15,7 +15,11 @@ import { RegisterComponent } from '../register/register.component';
 })
 export class LoginComponent implements OnInit {
 
-  form = new FormControl('');
+  loginForm = new FormGroup({
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+  });
+
   user: User = {
     username: '',
     password: ''
@@ -30,10 +34,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.dialogRef.close();
-  }
-
-  register() {
-    this.dialogRef.close();
+    // console.log('***this.loginForm.value ', this.loginForm.value)
   }
 
   openForm(): void {
