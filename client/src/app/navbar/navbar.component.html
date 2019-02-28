@@ -3,36 +3,40 @@
   <div class ="headerBox">
 
     <div class="logoBox">
-        <img src="../../assets/images/logoCatGrey.png" alt="logoCat" class="logoCat">
-        <p class="titleLogo colorText">My Robot Vacuum</p>
-      </div>
+      <button routerLink = "/">
+          <img src="../../assets/images/logoCatGrey.png" alt="logoCat" class="logoCat" >
+      </button>
+      <button routerLink = "/">
+          <p class="titleLogo colorText">My Robot Vacuum</p>
+      </button>
+    </div>
 
-      <div class="menuBox colorText">
-        <div class="subMenuBox">
-          <i class="fas fa-home iconStyle" routerLink = "/"></i>
-          <p>Home</p>
-        </div>
-        <div class="subMenuBox">
-          <i class="fas fa-star iconStyle" routerLink = "/top10"></i>
-          <p>Top 10</p>
-        </div>
-        <div class="subMenuBox">
-          <i class="fas fa-sign-in-alt iconStyle" routerLink = "/login"></i>
-          <p>Sign-in/Login</p>
-        </div>
-      </div>
+    <div class="menuBox colorText">
+      <button class="subMenuBox" routerLink = "/">
+        <i class="fas fa-home iconStyle"></i>
+        <p>Home</p>
+      </button>
+      <button class="subMenuBox" routerLink = "/top10">
+        <i class="fas fa-star iconStyle"></i>
+        <p>Top 10</p>
+      </button>
+      <button class="subMenuBox" routerLink = "/login">
+        <i class="fas fa-sign-in-alt iconStyle"></i>
+        <p>Sign-in/Login</p>
+      </button>
+    </div>
 
-      <div class="menuBox-reduced">
-        <mat-menu #appMenu="matMenu" >
-            <button mat-menu-item routerLink = "/">Home</button>
-            <button mat-menu-item routerLink = "/top10">Top 10</button>
-            <button mat-menu-item routerLink = "/login">Sign-in/Login</button>
-          </mat-menu>
+    <div class="menuBox-reduced">
+      <mat-menu #appMenu="matMenu" >
+          <button mat-menu-item routerLink = "/">Home</button>
+          <button mat-menu-item routerLink = "/top10">Top 10</button>
+          <button mat-menu-item routerLink = "/login">Sign-in/Login</button>
+        </mat-menu>
 
-          <button mat-icon-button [matMenuTriggerFor]="appMenu" class="menuButton">
-            <i class="fas fa-bars menuBars"></i>
-          </button>
-      </div>
+        <button mat-icon-button [matMenuTriggerFor]="appMenu" class="menuButton">
+          <i class="fas fa-bars menuBars"></i>
+        </button>
+    </div>
 
   </div>
 
