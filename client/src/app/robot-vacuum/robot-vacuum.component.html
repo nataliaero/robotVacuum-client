@@ -1,6 +1,9 @@
 <div class="robotDashboard" *ngIf="robot">
   <p class="title">{{robot.name}}</p>
   <p class="subtitle">{{robot.subtitle}}</p>
+  <button class="buttonBuy">
+    <a href={{robot.webBuy}} target="_blank" class="textButton">{{robot.whereToBuy}}</a>
+  </button>
   <hr>
   <div class="card card-style card-border">
     <img src="{{robot.imageCard1}}" alt="image card" class="card-img">

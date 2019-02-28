@@ -9,9 +9,12 @@ import { RobotVacuumComponent } from './robot-vacuum/robot-vacuum.component';
 import { Top10Component } from './top10/top10.component';
 import { LoginComponent } from './login/login.component';
 
+import { HttpClientModule } from '@angular/common/http';
 import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,13 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     MatMenuModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    LoginComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

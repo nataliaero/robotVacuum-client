@@ -89,6 +89,7 @@ button:focus {outline:0;}
 .iconStyle {
   font-size: 2rem;
   margin-right: 0.6rem;
+  margin-top: -1rem;
 }
 
 .menuBox-reduced {
