@@ -7,6 +7,9 @@
         <p class="card-title">{{i+1}}) {{robot.name}}</p>
         <p [innerHTML]="robot.descriptionCompare" ></p>
       </div>
-      <img src="{{robot.image}}" alt="image card" class="card-img">
+      <div class="card-img-box">
+        <img src="{{robot.image}}" alt="image card" class="card-img">
+        <button type="button" class="card-btn" [routerLink]="['/robot',robot._id]">Read more</button>
+      </div>
     </div>
 </div>

@@ -56,7 +56,24 @@ hr {
   color: rgba(238, 120, 70);
 }
 
+.card-img-box {
+  display:flex;
+  flex-direction: column;
+}
+
 .card-img {
-  width: 30rem;
-  padding: 2rem 5rem 2rem 5rem;
+  width: 25rem;
+  height: 25rem;
+}
+
+.card-btn {
+  align-self: flex-end;
+  margin: 10px 10px;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  background-color: rgba(238, 120, 70);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
 }
