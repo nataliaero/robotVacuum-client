@@ -51,12 +51,18 @@ hr {
 .card-data {
   display: flex;
   flex-direction: column;
-  width: 40%;
-  padding: 10px;
+  width: 100%;
+  padding: 2rem 5rem 2rem 2rem;
 }
 
 .card-title {
   font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.card-img {
+  width: 40rem;
+  padding: 2rem 5rem 2rem 5rem;
 }
 
 .table-header {

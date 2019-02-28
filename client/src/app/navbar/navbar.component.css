@@ -2,17 +2,36 @@
 lightBlueColor rgb(172, 212, 220)
 lightGrey rgb(236, 238, 235)
 orange rgb(238, 120, 70)
+bg dark: #2E3B4E
 orange #EE6002*/
 
-.headerBox {
+.navbarBox {
   position: fixed;
+  display:flex;
+  flex-direction: column;
+}
+
+hr {
+  border:none;
+  height: 20px;
+ 	width: 80%;
+	height: 50px;
+	margin-top: 0;
+	border-bottom: 1px solid #2E3B4E;
+	box-shadow: 0 20px 20px -20px #333;
+  margin: -50px auto 10px;
+}
+
+.headerBox {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   background-color: rgb(236, 238, 235);
   width: 100vw;
-  height: 100px;
+  height: 80px;
   padding: 0 10%;
+  /* border-bottom: 1px solid #2E3B4E;
+  box-shadow: 0 0 3px 0 #2E3B4E; */
 }
 
 .logoBox {
@@ -28,10 +47,13 @@ orange #EE6002*/
   margin-right: 2rem;
 }
 
+.colorText {
+  color: #2E3B4E;
+}
+
 .titleLogo {
   font-family: "Rancho";
   font-size: 4rem;
-  color: #2E3B4E;
 }
 
 .menuBox {
@@ -50,7 +72,6 @@ orange #EE6002*/
 }
 
 .iconStyle {
-  color: #2E3B4E;
   font-size: 2rem;
   margin-right: 0.6rem;
 }
@@ -59,7 +80,6 @@ orange #EE6002*/
   display: none;
 }
 .menuBars {
-  color: #2E3B4E;
   font-size: 2.5rem;
   background-color: rgb(236, 238, 235, 0.5);
 }

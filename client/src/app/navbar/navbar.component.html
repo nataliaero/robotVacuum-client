@@ -1,36 +1,41 @@
-<div class="headerBox">
-  <div class="logoBox">
-    <img src="../../assets/images/logoCatGrey.png" alt="logoCat" class="logoCat">
-    <p class="titleLogo">My Robot Vacuum</p>
+<div class="navbarBox">
+
+  <div class ="headerBox">
+
+    <div class="logoBox">
+        <img src="../../assets/images/logoCatGrey.png" alt="logoCat" class="logoCat">
+        <p class="titleLogo colorText">My Robot Vacuum</p>
+      </div>
+
+      <div class="menuBox colorText">
+        <div class="subMenuBox">
+          <i class="fas fa-home iconStyle" routerLink = "/"></i>
+          <p>Home</p>
+        </div>
+        <div class="subMenuBox">
+          <i class="fas fa-star iconStyle" routerLink = "/top10"></i>
+          <p>Top 10</p>
+        </div>
+        <div class="subMenuBox">
+          <i class="fas fa-sign-in-alt iconStyle" routerLink = "/login"></i>
+          <p>Sign-in/Login</p>
+        </div>
+      </div>
+
+      <div class="menuBox-reduced">
+        <mat-menu #appMenu="matMenu" >
+            <button mat-menu-item routerLink = "/">Home</button>
+            <button mat-menu-item routerLink = "/top10">Top 10</button>
+            <button mat-menu-item routerLink = "/login">Sign-in/Login</button>
+          </mat-menu>
+
+          <button mat-icon-button [matMenuTriggerFor]="appMenu" class="menuButton">
+            <i class="fas fa-bars menuBars"></i>
+          </button>
+      </div>
+
   </div>
 
-  <div class="menuBox">
-    <div class="subMenuBox">
-      <i class="fas fa-home iconStyle" routerLink = "/"></i>
-      <p>Home</p>
-    </div>
-    <div class="subMenuBox">
-      <i class="fas fa-star iconStyle" routerLink = "/top10"></i>
-      <p>Top 10</p>
-    </div>
-    <div class="subMenuBox">
-      <i class="fas fa-sign-in-alt iconStyle" routerLink = "/login"></i>
-      <p>Sign-in/Login</p>
-    </div>
-  </div>
-
-  <div class="menuBox-reduced">
-    <mat-menu #appMenu="matMenu" >
-        <button mat-menu-item routerLink = "/">Home</button>
-        <button mat-menu-item routerLink = "/top10">Top 10</button>
-        <button mat-menu-item routerLink = "/login">Sign-in/Login</button>
-      </mat-menu>
-
-      <button mat-icon-button [matMenuTriggerFor]="appMenu" class="menuButton">
-        <i class="fas fa-bars menuBars"></i>
-      </button>
-  </div>
-
-
+  <hr>
 
 </div>

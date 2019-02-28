@@ -13,8 +13,7 @@
   <div class="robotList" *ngIf="robots">
       <div *ngFor="let robot of robots">
         <div class="card card-style">
-          <!-- <img src="{{robot.image}}" alt="robot portay image"> -->
-          <p class="card-image">Image</p>
+          <img src="{{robot.image}}" alt="robot portay image" class="card-image">
           <div class="card-data-style">
             <p class="card-title">{{robot.name}}</p>
             <p class="card-description">{{robot.description}}</p>
