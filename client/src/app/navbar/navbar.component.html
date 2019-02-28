@@ -30,7 +30,7 @@
       <mat-menu #appMenu="matMenu" >
           <button mat-menu-item routerLink = "/">Home</button>
           <button mat-menu-item routerLink = "/top10">Top 10</button>
-          <button mat-menu-item routerLink = "/login">Sign-in/Login</button>
+          <button mat-menu-item (click)="openForm()">Sign-in/Login</button>
         </mat-menu>
 
         <button mat-icon-button [matMenuTriggerFor]="appMenu" class="menuButton">

@@ -1,24 +1,26 @@
 <div class="bgForm">
 
   <div class="header">
-      <h2>Log in</h2>
-      <button class="closeButton" mat-dialog-close>&times;</button>
+    <p class="login-title">Log in</p>
+    <button class="closeButton" mat-dialog-close>&times;</button>
   </div>
 
   <form novalidate (ngSubmit)="onSubmit()">
     <div class="formLine">
       <p class="text">Username:</p>
-      <input type="text" placeholder="enter username..." [(ngModel)]="user.username" name="username">
+      <input class="input-style" type="text" placeholder="enter username..." [(ngModel)]="user.username" name="username">
     </div>
+
     <div class="formLine">
-        <p class="text">Password:</p>
-        <input type="text" placeholder="enter password..." [(ngModel)]="user.password" name="password">
-      </div>
+      <p class="text">Password:</p>
+      <input class="input-style"  type="text" placeholder="enter password..." [(ngModel)]="user.password" name="password">
+    </div>
 
     <div class="buttonsBottom">
-        <button mat-dialog-close class="buttonForm">Cancel</button>
-        <button type="submit" class="buttonForm">Submit</button>
+      <button type="submit" class="buttonForm">Login</button>
+      <button (click)="openForm()" class="buttonForm">Register</button>
     </div>
+
   </form>
 
 </div>

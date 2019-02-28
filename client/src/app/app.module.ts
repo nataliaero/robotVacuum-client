@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MatDialogModule } from '@angular/material';
     DashboardComponent,
     RobotVacuumComponent,
     Top10Component,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { MatDialogModule } from '@angular/material';
     MatDialogModule
   ],
   entryComponents: [
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

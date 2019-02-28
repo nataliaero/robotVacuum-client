@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { LoginComponent } from '../login/login.component';
-import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 
 @Component({
   selector: 'app-navbar',
