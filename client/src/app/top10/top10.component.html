@@ -1,7 +1,9 @@
 <div class="top10Dashboard" *ngIf="robots">
+
     <p class="title">The top-selling vacuum robots</p>
     <p class="subtitle">Comparative analysis of the most popular brands</p>
     <hr>
+
     <div class="card card-style card-border" *ngFor="let robot of robots; index as i">
       <div class="card-data">
         <p class="card-title">{{i+1}}) {{robot.name}}</p>
