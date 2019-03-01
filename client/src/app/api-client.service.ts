@@ -21,7 +21,7 @@ export class ApiClientService {
   }
 
   getOneRobot(id: number): Observable<Robot> {
-    const url = this.apiUrl + `/robot/${id}`;
+    const url = this.apiUrl + `/robots/robot/${id}`;
     return this.http.get<Robot>(url);
   }
 
@@ -31,7 +31,7 @@ export class ApiClientService {
   }
 
   searchRobot(name: string): Observable<Robot[]> {
-    const url = this.apiUrl + `/search/${name}`;
+    const url = this.apiUrl + `/robots/search/${name}`;
     return this.http.get<Robot[]>(url);
   }
 
