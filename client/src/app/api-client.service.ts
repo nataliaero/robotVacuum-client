@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
-import { Observable, of, Subject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of, Subject, throwError } from 'rxjs';
 
 import { Robot } from './shared/Robot';
+import { NewUser } from './shared/NewUser';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +47,11 @@ export class ApiClientService {
   getSearchVal() {
     return this.searchVal$;
   }
+
+  registerUser(newUser: NewUser) {
+    this.http.post<NewUser>(this.apiUrl + `/users/register`, newUser, httpOptions).subscribe();
+  }
+
 
 
 }

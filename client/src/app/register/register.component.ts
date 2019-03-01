@@ -19,11 +19,13 @@ export class RegisterComponent implements OnInit {
     firstname: new FormControl('', Validators.required),
     lastname: new FormControl('', Validators.required),
   });
+
   user: NewUser = {
     username: '',
     password: '',
     firstname: '',
-    lastname: ''
+    lastname: '',
+    admin: false
   };
 
   constructor(private dialogRef: MatDialogRef<RegisterComponent>,
@@ -33,6 +35,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    this.apiClientService.registerUser(this.registrationForm.value);
     this.dialogRef.close();
   }
 
