@@ -33,11 +33,9 @@ export class AuthService {
   checkJWTtoken() {
     this.http.get<JWTResponse>(this.apiUrl + '/users/checkJWTtoken')
     .subscribe(res => {
-      console.log('JWT Token Valid: ', res);
       this.sendUsername(res.user.username);
     },
     err => {
-      console.log('JWT Token invalid: ', err);
       this.destroyUserCredentials();
     });
   }
@@ -52,7 +50,6 @@ export class AuthService {
 
   loadUserCredentials() {
     const credentials = JSON.parse(localStorage.getItem(this.tokenKey));
-    console.log('loadUserCredentials', credentials);
     if (credentials && credentials.username !== undefined) {
       this.useCredentials(credentials);
       if (this.authToken) {
@@ -62,7 +59,6 @@ export class AuthService {
   }
 
   storeUserCredentials(credentials: any) {
-    console.log('storeUserCredentials', credentials);
     localStorage.setItem(this.tokenKey, JSON.stringify(credentials));
     this.useCredentials(credentials);
   }
@@ -82,8 +78,12 @@ export class AuthService {
 
   logIn(user: any): Observable<any> {
     return this.http.post<AuthResponse>(this.apiUrl + '/users/login', user).pipe(map(res => {
-      this.storeUserCredentials({username: user.username, token: res.token});
-      return {success: true, username: user.username };
+      if (res.success) {
+        this.storeUserCredentials({username: user.username, token: res.token});
+        return {success: res.success, username: user.username, status: res.status};
+      } else {
+        return {success: res.success, username: user.username, status: res.status };
+      }
     }));
   }
 

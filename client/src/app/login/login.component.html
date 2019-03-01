@@ -33,6 +33,8 @@
       </div>
     </div>
 
+    <p *ngIf="!loginSuccess" class="errorForm wrongLogin">Wrong username and/or password</p>
+
     <div class="buttonsBottom">
       <button type="submit" class="buttonForm" [disabled]="!loginForm.valid">
         Login

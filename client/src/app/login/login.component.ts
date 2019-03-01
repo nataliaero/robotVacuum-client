@@ -20,10 +20,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', Validators.required),
   });
 
-  user: User = {
-    username: '',
-    password: ''
-  };
+  loginSuccess = true; // Initially at true so that error is not displayed
 
   constructor(private dialogRef: MatDialogRef<LoginComponent>,
               private authService: AuthService,
@@ -33,27 +30,20 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('***this.loginForm.value ', this.loginForm.value);
     this.authService.logIn(this.loginForm.value)
     .subscribe(res => {
-      console.log('res ', res);
-      console.log('res.sucess ', res.success);
       if (res.success) {
-        console.log('***')
+        this.loginSuccess = true;
         this.dialogRef.close();
-      }
-    }, error => {
-      console.log('error ', error);
+      } else { this.loginSuccess = false; }
     });
 
   }
 
   openForm(): void {
-
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-
     dialogConfig.width = '50rem';
     dialogConfig.height = '60rem';
     this.dialog.open(RegisterComponent, dialogConfig);
