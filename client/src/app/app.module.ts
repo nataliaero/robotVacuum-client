@@ -20,6 +20,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AuthInterceptor, UnauthorizedInterceptor } from './auth.interceptor';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
     RobotVacuumComponent,
     Top10Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
