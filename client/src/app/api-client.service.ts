@@ -49,7 +49,7 @@ export class ApiClientService {
   }
 
   registerUser(newUser: NewUser) {
-    this.http.post<NewUser>(this.apiUrl + `/users/register`, newUser, httpOptions).subscribe();
+    return this.http.post<NewUser>(this.apiUrl + `/users/register`, newUser, httpOptions).subscribe();
   }
 
 

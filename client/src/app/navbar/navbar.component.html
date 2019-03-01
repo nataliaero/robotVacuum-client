@@ -20,17 +20,23 @@
         <i class="fas fa-star iconStyle"></i>
         <p class="textMenu">Top 10</p>
       </button>
-      <button class="subMenuBox" (click)="openForm()">
+      <button *ngIf="!username" class="subMenuBox" (click)="openForm()">
         <i class="fas fa-sign-in-alt iconStyle"></i>
         <p class="textMenu">Sign-in/Login</p>
       </button>
+      <p *ngIf="username" class="textMenu marginUser">Hi {{username}}!</p>
+      <button *ngIf="username" class="subMenuBox" (click)="logOut()">
+          <i class="fas fa-sign-out-alt iconStyle"></i>
+          <p class="textMenu">Logout</p>
+        </button>
     </div>
 
     <div class="menuBox-reduced">
       <mat-menu #appMenu="matMenu" >
           <button mat-menu-item routerLink = "/">Home</button>
           <button mat-menu-item routerLink = "/top10">Top 10</button>
-          <button mat-menu-item (click)="openForm()">Sign-in/Login</button>
+          <button *ngIf="!username" mat-menu-item (click)="openForm()">Sign-in/Login</button>
+          <p *ngIf="username">{{username}}</p>
         </mat-menu>
 
         <button mat-icon-button [matMenuTriggerFor]="appMenu" class="menuButton">

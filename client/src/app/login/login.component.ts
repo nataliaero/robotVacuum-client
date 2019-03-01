@@ -4,7 +4,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
 
 import { User } from '../shared/User';
-import { ApiClientService } from '../api-client.service';
+import { AuthService } from '../auth.service';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { RegisterComponent } from '../register/register.component';
 
@@ -26,15 +26,26 @@ export class LoginComponent implements OnInit {
   };
 
   constructor(private dialogRef: MatDialogRef<LoginComponent>,
-              private apiClientService: ApiClientService,
+              private authService: AuthService,
               private dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    this.dialogRef.close();
-    // console.log('***this.loginForm.value ', this.loginForm.value)
+    console.log('***this.loginForm.value ', this.loginForm.value);
+    this.authService.logIn(this.loginForm.value)
+    .subscribe(res => {
+      console.log('res ', res);
+      console.log('res.sucess ', res.success);
+      if (res.success) {
+        console.log('***')
+        this.dialogRef.close();
+      }
+    }, error => {
+      console.log('error ', error);
+    });
+
   }
 
   openForm(): void {

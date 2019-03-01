@@ -18,6 +18,9 @@ import { MatDialogModule } from '@angular/material';
 import { RegisterComponent } from './register/register.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
+import { AuthInterceptor, UnauthorizedInterceptor } from './auth.interceptor';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +47,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     LoginComponent,
     RegisterComponent
   ],
-  providers: [],
+  providers: [
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: UnauthorizedInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

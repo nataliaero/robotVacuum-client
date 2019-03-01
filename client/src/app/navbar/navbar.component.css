@@ -94,6 +94,11 @@ button:focus {outline:0;}
   font-size: 2rem;
 }
 
+.marginUser {
+  margin-left: 5px;
+  color: rgb(238, 120, 70);
+}
+
 .menuBox-reduced {
   display: none;
 }
