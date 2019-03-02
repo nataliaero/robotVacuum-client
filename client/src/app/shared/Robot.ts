@@ -1,11 +1,4 @@
-import { Identifiers } from '@angular/compiler';
-
-export class Comment {
-  comment: string;
-  date: number;
-  author: string;
-  name: string;
-}
+import { Comment } from './Comment';
 
 export class Robot {
   /* tslint:disable */

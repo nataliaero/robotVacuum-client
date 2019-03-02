@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, Subject, throwError } from 'rxjs';
 
-import { Robot, Comment } from './shared/Robot';
+import { Robot } from './shared/Robot';
+import { Comment } from './shared/Comment';
 import { NewUser } from './shared/NewUser';
 
 const httpOptions = {
@@ -52,9 +53,17 @@ export class ApiClientService {
     return this.http.post<NewUser>(this.apiUrl + `/users/register`, newUser, httpOptions).subscribe();
   }
 
+  // get comments based on id of one robot vacuum
+  getComments(id: number): Observable<Comment[]> {
+    const url = this.apiUrl + `/robots/robot/${id}/comments`;
+    return this.http.get<Comment[]>(url);
+  }
+
+  // post one comment based on id of one robot vacuum
   postComment(id: number, comment: Comment) {
     return this.http.post<Comment>(this.apiUrl + `/robots/robot/${id}/comments`, comment, httpOptions).subscribe();
   }
+
 
 
 

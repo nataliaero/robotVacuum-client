@@ -4,7 +4,7 @@
   <button class="buttonBuy">
     <a href={{robot.webBuy}} target="_blank" class="textButton">{{robot.whereToBuy}}</a>
   </button>
-  <hr>
+  <hr class="line-title">
   <div class="card card-style card-border">
     <img src="{{robot.imageCard1}}" alt="image card" class="card-img">
     <div class="card-data">
@@ -51,6 +51,18 @@
     </tbody>
   </table>
 
+  <div *ngIf="comments && comments.length" class="comment-header">
+    <p class="comment-header-title">{{comments.length}} COMMENTS</p>
+  </div>
+
+  <div *ngIf="comments && comments.length" class="comments-outerbox">
+    <div *ngFor="let comment of comments" class="comments-box">
+      <p class="comments-title">{{comment.name}} on {{comment.date}}</p>
+      <p class="comments-comment">{{comment.comment}}</p>
+      <hr class="line-comments">
+    </div>
+  </div>
+
   <div class="comment-header">
     <p *ngIf="username" class="comment-header-title">Leave a comment {{username}}!</p>
     <p *ngIf="!username" class="comment-header-title">Leave a comment!</p>
@@ -65,7 +77,8 @@
         placeholder="Type your message..."
         size="2000"
         maxlength="1000"
-        formControlName="comment">
+        formControlName="comment"
+        (keyup)="onKey()">
     </div>
 
     <div *ngIf="commentsForm.controls.comment.errors" class="error-box">
@@ -80,12 +93,18 @@
       type="text"
       size="30"
       placeholder="Your name..."
-      formControlName="name">
+      formControlName="name"
+      (keyup)="onKey()">
     </div>
+
     <div *ngIf="commentsForm.controls.name.errors" class="error-box">
       <div *ngIf="commentsForm.controls.name.errors.required" >
         <p class="errorForm">Name is required</p>
       </div>
+    </div>
+
+    <div *ngIf="messageSent">
+      <p class="messagePosted">{{messageSent}}</p>
     </div>
 
     <div class="button-box">

@@ -40,12 +40,20 @@ a:hover{
   color: white;
 }
 
-hr {
+.line-title {
   border-width: 1px;
   color: rgb(204, 209, 216);
   border-style: solid;
   width: 80%;
   margin: 25px 0;
+}
+
+.line-comments {
+  border-width: 1px;
+  color: rgb(204, 209, 216);
+  border-style: solid;
+  width: 90%;
+  align-self: center;
 }
 
 .card-style {
@@ -125,6 +133,26 @@ tr:nth-child(even){
   border-bottom: 1px solid rgb(204, 210, 216);
   padding-left: 1rem;
 }
+.comments-outerbox {
+  width: 80%;
+}
+
+.comments-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #fff;
+}
+
+.comments-title {
+  margin: 25px 5% 10px 5%;
+  font-weight: 700;
+}
+
+.comments-comment {
+  margin: 0 5% 25px 5%;
+}
 
 .comment-header-title {
   color: white;
@@ -163,6 +191,11 @@ form {
   font-size: 1rem;
   color: red;
   margin-left: 1rem;
+}
+
+.messagePosted{
+  color: rgb(238, 120, 70);
+  margin-left: 1.2rem;
 }
 
 .comment-name-box {

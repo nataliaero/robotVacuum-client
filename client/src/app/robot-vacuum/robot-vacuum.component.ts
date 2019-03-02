@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 
-import { Robot, Comment } from '../shared/Robot';
+import { Robot } from '../shared/Robot';
+import { Comment } from '../shared/Comment';
 import { ApiClientService } from '../api-client.service';
 import { AuthService } from '../auth.service';
 import { Subscription } from 'rxjs';
@@ -17,10 +18,12 @@ export class RobotVacuumComponent implements OnInit {
 
   robot: Robot;
   id: number;
-  message: Comment = {comment: '', date: 0, name: '', author: ''};
+  message: Comment = {comment: '', date: '', name: '', author: ''};
   username: string = undefined;
   subscription: Subscription;
   messageSent: string;
+
+  comments: Comment[];
 
   commentsForm = new FormGroup({
     comment: new FormControl('', Validators.required),
@@ -36,6 +39,7 @@ export class RobotVacuumComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     /* tslint:enable:no-string-literal */
     this.getOneRobot(this.id);
+    this.getComments(this.id);
 
     this.subscription = this.authService.getUsername()
       .subscribe(name => {
@@ -43,11 +47,20 @@ export class RobotVacuumComponent implements OnInit {
       });
   }
 
+  getComments(id: number): void {
+    this.apiClientService.getComments(id)
+    .subscribe(comments => this.comments = comments);
+  }
+
   getOneRobot(id: number): void {
     this.apiClientService.getOneRobot(id)
     .subscribe(robot => {
       return this.robot = robot;
     });
+  }
+
+  onKey() {
+    this.messageSent = '';
   }
 
   onSubmit() {
@@ -61,10 +74,10 @@ export class RobotVacuumComponent implements OnInit {
         this.message.name = 'anonymous';
       }
     }
-
-    this.message.date = Date.now();
     this.apiClientService.postComment(this.id, this.message);
     this.commentsForm.reset();
+    this.getComments(this.id);
+    this.messageSent = 'Your message is posted successfully!'
   }
 
 }
