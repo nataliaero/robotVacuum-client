@@ -88,7 +88,7 @@ hr {
 }
 
 .table-header {
-  background-color: rgba(238, 120, 70);
+  background-color: rgb(238, 120, 70);
   padding: 12px;
   text-align: left;
   color: white;
@@ -110,7 +110,87 @@ th {
 }
 
 tr:nth-child(even){
-    background-color: white;
+  background-color: white;
+}
+
+.comment-header {
+  background-color: rgb(238, 120, 70);
+  width: 80%;
+  text-align: center;
+  padding: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: 1px solid rgb(204, 210, 216);
+  border-bottom: 1px solid rgb(204, 210, 216);
+  padding-left: 1rem;
+}
+
+.comment-header-title {
+  color: white;
+  font-weight: 700;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+
+.comment-input-box {
+  display: flex;
+  width: 100%;
+  margin: 5px 0;
+}
+
+.comment-input {
+  width: 100%;
+  height: 15rem;
+  text-align: start;
+  padding-left: 15px;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+}
+
+.error-box {
+  align-self: flex-start;
+  margin-bottom: 15px;
+}
+
+.errorForm {
+  font-size: 1rem;
+  color: red;
+  margin-left: 1rem;
+}
+
+.comment-name-box {
+  align-self: flex-start;
+  margin: 5px 0;
+}
+
+.name-input {
+  height: 3rem;
+  text-align: start;
+  padding-left: 15px;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+}
+
+.button-box {
+  align-self: flex-start;
+  margin: 5px 0;
+}
+
+.buttonForm {
+  background-color: rgb(238, 120, 70);
+  font-family: Montserrat;
+  color: rgb(236, 238, 235);
+  font-size: 1.7rem;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-right: 1rem;
 }
 
 @media only screen and (max-width: 900px) {

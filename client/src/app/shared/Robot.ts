@@ -1,5 +1,12 @@
+export class Comment {
+  comment: string;
+  date: number;
+}
+
 export class Robot {
+  /* tslint:disable */
   _id: string;
+  /* tslint:enable */
   name: string;
   subtitle: string;
   image: string;
@@ -35,4 +42,5 @@ export class Robot {
     remoteControl: string;
     appMobile: string;
   };
+  comments: [Comment];
 }

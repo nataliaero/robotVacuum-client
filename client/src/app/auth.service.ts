@@ -33,7 +33,11 @@ export class AuthService {
   checkJWTtoken() {
     this.http.get<JWTResponse>(this.apiUrl + '/users/checkJWTtoken')
     .subscribe(res => {
-      this.sendUsername(res.user.username);
+      if (res.user) {
+        this.sendUsername(res.user.username);
+      } else {
+        this.sendUsername(undefined);
+      }
     },
     err => {
       this.destroyUserCredentials();

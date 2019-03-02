@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
-
-import { User } from '../shared/User';
-import { AuthService } from '../auth.service';
 import { MatDialog, MatDialogConfig } from '@angular/material';
+
 import { RegisterComponent } from '../register/register.component';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -37,7 +36,6 @@ export class LoginComponent implements OnInit {
         this.dialogRef.close();
       } else { this.loginSuccess = false; }
     });
-
   }
 
   openForm(): void {

@@ -49,6 +49,50 @@
       <tr><th>Remote control system</th><th>{{robot.tableProps.remoteControl}}</th></tr>
       <tr><th>Mobile app</th><th>{{robot.tableProps.appMobile}}</th></tr>
     </tbody>
-
   </table>
+
+  <div class="comment-header">
+    <p class="comment-header-title">Leave a comment</p>
+  </div>
+
+  <form [formGroup]="commentsForm" (ngSubmit)="onSubmit()">
+
+    <div class="comment-input-box">
+      <input
+        class="comment-input"
+        type="text"
+        placeholder="Type your message..."
+        size="2000"
+        maxlength="1000"
+        formControlName="comment">
+    </div>
+
+    <div *ngIf="commentsForm.controls.comment.errors" class="error-box">
+      <div *ngIf="commentsForm.controls.comment.errors.required" >
+        <p class="errorForm">Comment is required</p>
+      </div>
+    </div>
+
+    <div class="comment-name-box">
+      <input
+      class="name-input"
+      type="text"
+      size="30"
+      placeholder="Your name..."
+      formControlName="name">
+    </div>
+    <div *ngIf="commentsForm.controls.name.errors" class="error-box">
+      <div *ngIf="commentsForm.controls.name.errors.required" >
+        <p class="errorForm">Name is required</p>
+      </div>
+    </div>
+
+    <div class="button-box">
+      <button type="submit" class="buttonForm" [disabled]="!commentsForm.valid">
+        Submit
+      </button>
+    </div>
+
+  </form>
+
 </div>
