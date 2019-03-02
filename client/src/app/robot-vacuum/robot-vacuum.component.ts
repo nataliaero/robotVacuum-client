@@ -74,10 +74,13 @@ export class RobotVacuumComponent implements OnInit {
         this.message.name = 'anonymous';
       }
     }
-    this.apiClientService.postComment(this.id, this.message);
+    this.apiClientService.postComment(this.id, this.message)
+      .subscribe( res => {
+        this.getComments(this.id);
+      });
     this.commentsForm.reset();
     this.getComments(this.id);
-    this.messageSent = 'Your message is posted successfully!'
+    this.messageSent = 'Your message is posted successfully!';
   }
 
 }

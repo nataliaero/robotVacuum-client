@@ -154,6 +154,19 @@ tr:nth-child(even){
   margin: 0 5% 25px 5%;
 }
 
+.response-box {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  align-items: center;
+  margin: 0 5% 5px 0;
+}
+
+.icon-style {
+  margin-left: 5px;
+  color: #2E3B4E;
+}
+
 .comment-header-title {
   color: white;
   font-weight: 700;
