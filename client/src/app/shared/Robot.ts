@@ -1,6 +1,10 @@
+import { Identifiers } from '@angular/compiler';
+
 export class Comment {
   comment: string;
   date: number;
+  author: string;
+  name: string;
 }
 
 export class Robot {

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, Subject, throwError } from 'rxjs';
 
-import { Robot } from './shared/Robot';
+import { Robot, Comment } from './shared/Robot';
 import { NewUser } from './shared/NewUser';
 
 const httpOptions = {
@@ -50,6 +50,10 @@ export class ApiClientService {
 
   registerUser(newUser: NewUser) {
     return this.http.post<NewUser>(this.apiUrl + `/users/register`, newUser, httpOptions).subscribe();
+  }
+
+  postComment(id: number, comment: Comment) {
+    return this.http.post<Comment>(this.apiUrl + `/robots/robot/${id}/comments`, comment, httpOptions).subscribe();
   }
 
 

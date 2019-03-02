@@ -52,7 +52,8 @@
   </table>
 
   <div class="comment-header">
-    <p class="comment-header-title">Leave a comment</p>
+    <p *ngIf="username" class="comment-header-title">Leave a comment {{username}}!</p>
+    <p *ngIf="!username" class="comment-header-title">Leave a comment!</p>
   </div>
 
   <form [formGroup]="commentsForm" (ngSubmit)="onSubmit()">
@@ -73,7 +74,7 @@
       </div>
     </div>
 
-    <div class="comment-name-box">
+    <div *ngIf="!username" class="comment-name-box">
       <input
       class="name-input"
       type="text"
