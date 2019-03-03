@@ -26,8 +26,7 @@ export class RobotVacuumComponent implements OnInit {
   comments: Comment[];
 
   commentsForm = new FormGroup({
-    comment: new FormControl('', Validators.required),
-    name: new FormControl(''),
+    comment: new FormControl('', Validators.required)
   });
 
   constructor(private apiClientService: ApiClientService,
@@ -68,11 +67,7 @@ export class RobotVacuumComponent implements OnInit {
     if (this.username) {
       this.message.name = this.username;
     } else {
-      if (this.commentsForm.value.name) {
-        this.message.name = this.commentsForm.value.name;
-      } else {
-        this.message.name = 'anonymous';
-      }
+      this.message.name = 'Anonymous';
     }
     this.apiClientService.postComment(this.id, this.message)
       .subscribe( res => {

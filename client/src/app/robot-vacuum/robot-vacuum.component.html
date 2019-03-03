@@ -91,22 +91,6 @@
       </div>
     </div>
 
-    <div *ngIf="!username" class="comment-name-box">
-      <input
-      class="name-input"
-      type="text"
-      size="30"
-      placeholder="Your name..."
-      formControlName="name"
-      (keyup)="onKey()">
-    </div>
-
-    <div *ngIf="commentsForm.controls.name.errors" class="error-box">
-      <div *ngIf="commentsForm.controls.name.errors.required" >
-        <p class="errorForm">Name is required</p>
-      </div>
-    </div>
-
     <div *ngIf="messageSent">
       <p class="messagePosted">{{messageSent}}</p>
     </div>
