@@ -34,8 +34,14 @@ export class LoginComponent implements OnInit {
       if (res.success) {
         this.loginSuccess = true;
         this.dialogRef.close();
-      } else { this.loginSuccess = false; }
+      } else {
+        this.loginSuccess = false;
+      }
     });
+  }
+
+  onKey() {
+    this.loginSuccess = true;
   }
 
   openForm(): void {
@@ -44,6 +50,7 @@ export class LoginComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = '50rem';
     dialogConfig.height = '60rem';
+    this.loginSuccess = true;
     this.dialog.open(RegisterComponent, dialogConfig);
   }
 

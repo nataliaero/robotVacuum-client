@@ -5,7 +5,7 @@
     <button class="closeButton" mat-dialog-close>&times;</button>
   </div>
 
-  <form [formGroup]="registrationForm"  (ngSubmit)="onSubmit()">
+  <form [formGroup]="registrationForm"  (ngSubmit)="onSubmit()" class="formLine-box">
 
     <div class="formLine">
       <p class="text">First Name:</p>
@@ -18,6 +18,9 @@
       <div *ngIf="registrationForm.controls.firstname.errors.required" >
         <p class="errorForm">First name is required</p>
       </div>
+    </div>
+    <div *ngIf="!registrationForm.controls.firstname.errors" >
+      <p class="noErrorForm">Blank</p>
     </div>
 
     <div class="formLine">
@@ -32,6 +35,9 @@
         <p class="errorForm">Last name is required</p>
       </div>
     </div>
+    <div *ngIf="!registrationForm.controls.lastname.errors" >
+      <p class="noErrorForm">Blank</p>
+    </div>
 
     <div class="formLine">
       <p class="text">Username:</p>
@@ -45,6 +51,9 @@
         <p class="errorForm">Username is required</p>
       </div>
     </div>
+    <div *ngIf="!registrationForm.controls.username.errors" >
+      <p class="noErrorForm">Blank</p>
+    </div>
 
     <div class="formLine">
       <p class="text">Password:</p>
@@ -57,6 +66,9 @@
       <div *ngIf="registrationForm.controls.password.errors.required" >
         <p class="errorForm">Password is required</p>
       </div>
+    </div>
+    <div *ngIf="!registrationForm.controls.password.errors" >
+      <p class="noErrorForm">Blank</p>
     </div>
 
     <div class="buttonsBottom">

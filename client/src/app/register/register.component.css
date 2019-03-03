@@ -29,9 +29,13 @@
   outline: none;
 }
 
+.formLine-box {
+  padding: 0 0 0 5%;
+}
+
+
 .formLine {
   margin: 10% 0 0 0;
-  padding: 0 1rem;
   display: flex;
   flex-direction: row;
 }
@@ -39,19 +43,24 @@
 .text {
   font-size: 1.7rem;
   margin-right: 1.5rem;
-  width: 15rem;
+  width: 35%;
   align-self: center;
 }
 
 .errorForm {
   font-size: 1rem;
   color: red;
-  margin-left: 1rem;
+}
+
+.noErrorForm {
+  font-size: 1rem;
+  color: rgb(236, 238, 235);
 }
 
 .input-style {
   font-family: Montserrat;
   font-size: 1.7rem;
+  width: 55%;
 }
 
 .buttonsBottom {

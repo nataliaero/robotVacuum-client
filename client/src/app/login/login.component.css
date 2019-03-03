@@ -11,7 +11,7 @@
   align-items: center;
   padding: 3rem 3rem;
   background-color: rgb(238, 120, 70);
-  margin-bottom: 10%;
+  margin-bottom: 8%;
 }
 
 .login-title {
@@ -29,10 +29,13 @@
   outline: none;
 }
 
+.formLine-box {
+  padding: 0 0 0 5%;
+}
+
 
 .formLine {
   margin: 10% 0 0 0;
-  padding: 0 1rem;
   display: flex;
   flex-direction: row;
 }
@@ -40,31 +43,35 @@
 .text {
   font-size: 1.7rem;
   margin-right: 1.5rem;
-  width: 15rem;
+  width: 35%;
   align-self: center;
 }
 
 .errorForm {
   font-size: 1rem;
   color: red;
-  margin-left: 1rem;
+}
+.noErrorForm {
+  font-size: 1rem;
+  color: rgb(236, 238, 235);
 }
 
 .wrongLogin {
-  margin: 10px 0 0 0;
+  margin: 2px 0 0 0;
   text-align: center;
 }
 
 .input-style {
   font-family: Montserrat;
   font-size: 1.7rem;
+  width: 55%;
 }
 
 .buttonsBottom {
   display:flex;
   flex-direction: row;
   justify-content: center;
-  margin: 10% 0;
+  margin: 5% 0;
 }
 
 .buttonForm {

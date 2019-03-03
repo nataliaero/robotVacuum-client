@@ -5,19 +5,23 @@
     <button class="closeButton" mat-dialog-close>&times;</button>
   </div>
 
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="formLine-box">
 
     <div class="formLine">
       <p class="text">Username:</p>
       <input
       class="input-style"
       type="text"
-      formControlName="username">
+      formControlName="username"
+      (keyup)="onKey()">
     </div>
     <div *ngIf="loginForm.controls.username.errors" >
       <div *ngIf="loginForm.controls.username.errors.required" >
         <p class="errorForm">Username is required</p>
       </div>
+    </div>
+    <div *ngIf="!loginForm.controls.username.errors" >
+      <p class="noErrorForm">Blank</p>
     </div>
 
     <div class="formLine">
@@ -25,15 +29,20 @@
       <input
       class="input-style"
       type="text"
-      formControlName="password">
+      formControlName="password"
+      (keyup)="onKey()">
     </div>
     <div *ngIf="loginForm.controls.password.errors" >
       <div *ngIf="loginForm.controls.password.errors.required" >
         <p class="errorForm">Password is required</p>
       </div>
     </div>
+    <div *ngIf="!loginForm.controls.password.errors" >
+      <p class="noErrorForm">Blank</p>
+    </div>
 
     <p *ngIf="!loginSuccess" class="errorForm wrongLogin">Wrong username and/or password</p>
+    <p *ngIf="loginSuccess" class="noErrorForm wrongLogin">Blank</p>
 
     <div class="buttonsBottom">
       <button type="submit" class="buttonForm" [disabled]="!loginForm.valid">
