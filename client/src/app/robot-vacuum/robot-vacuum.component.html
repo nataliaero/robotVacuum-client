@@ -62,7 +62,7 @@
       <p class="comments-comment">{{comment.comment}}</p>
       <div class="response-box">
 
-        <p>REPLIES({{comment.comments.length}})</p>
+        <p class="button" (click)=showReplies(i)>REPLIES({{comment.comments.length}})</p>
         <div class="new-response-box">
           <p class="button" (click)=onClickReply(i)>REPLY</p>
           <i class="fas fa-chevron-right icon-style"></i>
@@ -107,10 +107,13 @@
           </form>
       </div>
 
-      <div *ngFor= "let subcomment of comment.comments" class="subcomments-box">
-        <p class="comments-title">{{subcomment.name}} on {{subcomment.date}}</p>
-        <p class="comments-comment">{{subcomment.comment}}</p>
+      <div *ngIf="showReplyComment[i]">
+        <div *ngFor= "let subcomment of comment.comments" class="subcomments-box">
+          <p class="comments-title">{{subcomment.name}} on {{subcomment.date}}</p>
+          <p class="comments-comment">{{subcomment.comment}}</p>
+        </div>
       </div>
+
 
     </div>
   </div>

@@ -28,6 +28,7 @@ export class RobotVacuumComponent implements OnInit {
   comments: Comment[];
 
   replayComment: boolean[];
+  showReplyComment: boolean[];
 
   commentsForm = new FormGroup({
     comment: new FormControl('', Validators.required)
@@ -61,6 +62,10 @@ export class RobotVacuumComponent implements OnInit {
       for (let index = 0; index < comments.length; index++) {
         this.replayComment[index] = false;
       }
+      this.showReplyComment = [];
+      for (let index = 0; index < comments.length; index++) {
+        this.showReplyComment[index] = false;
+      }
     });
   }
 
@@ -81,6 +86,10 @@ export class RobotVacuumComponent implements OnInit {
     for (const i in this.replayComment) {
       if (i !== index.toString()) { this.replayComment[i] = false; }
     }
+  }
+
+  showReplies(index: number) {
+    this.showReplyComment[index] = !this.showReplyComment[index];
   }
 
   onSubmit() {
