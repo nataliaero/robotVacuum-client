@@ -51,12 +51,12 @@
     </tbody>
   </table>
 
-  <div *ngIf="comments && comments.length" class="comment-header">
+  <div *ngIf="comments && comments.length" class="comment-header width-80">
     <p class="comment-header-title">{{comments.length}} COMMENTS</p>
   </div>
 
-  <div *ngIf="comments && comments.length" class="comments-outerbox">
-    <div *ngFor="let comment of comments" class="comments-box">
+  <div *ngIf="comments && comments.length" class="width-80">
+    <div *ngFor="let comment of comments; index as i" class="comments-box">
 
       <p class="comments-title">{{comment.name}} on {{comment.date}}</p>
       <p class="comments-comment">{{comment.comment}}</p>
@@ -64,11 +64,48 @@
 
         <p>REPLYS({{comment.comments.length}})</p>
         <div class="new-response-box">
-          <p class="button">REPLY</p>
+          <p class="button" (click)=onClickReply(i)>REPLY</p>
           <i class="fas fa-chevron-right icon-style"></i>
         </div>
       </div>
       <hr class="line-comments">
+
+      <div *ngIf="replayComment[i]" class="form-box">
+        <div class="comment-header width-90">
+          <p *ngIf="username" class="comment-header-title">Leave a comment {{username}}!</p>
+          <p *ngIf="!username" class="comment-header-title">Leave a comment!</p>
+        </div>
+        <form [formGroup]="commentsForm" (ngSubmit)="onSubmit()" class="width-90">
+
+            <div class="comment-input-box">
+              <textarea
+                class="comment-input"
+                type="text"
+                placeholder="Type your message..."
+                size="2000"
+                maxlength="1000"
+                formControlName="comment"
+                (keyup)="onKey()"></textarea>
+            </div>
+
+            <div *ngIf="commentsForm.controls.comment.errors" class="error-box">
+              <div *ngIf="commentsForm.controls.comment.errors.required" >
+                <p class="errorForm">Comment is required</p>
+              </div>
+            </div>
+
+            <div *ngIf="messageSent">
+              <p class="messagePosted">{{messageSent}}</p>
+            </div>
+
+            <div class="button-box">
+              <button type="submit" class="buttonForm" [disabled]="!commentsForm.valid">
+                Submit
+              </button>
+            </div>
+
+          </form>
+      </div>
 
       <div *ngFor= "let subcomment of comment.comments" class="subcomments-box">
         <p class="comments-title">{{subcomment.name}} on {{subcomment.date}}</p>
@@ -78,12 +115,12 @@
     </div>
   </div>
 
-  <div class="comment-header">
+  <div class="comment-header width-80">
     <p *ngIf="username" class="comment-header-title">Leave a comment {{username}}!</p>
     <p *ngIf="!username" class="comment-header-title">Leave a comment!</p>
   </div>
 
-  <form [formGroup]="commentsForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="commentsForm" (ngSubmit)="onSubmit()" class="width-80">
 
     <div class="comment-input-box">
       <textarea
