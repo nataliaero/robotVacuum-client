@@ -46,6 +46,7 @@
       type="text"
       formControlName="username">
     </div>
+
     <div *ngIf="registrationForm.controls.username.errors" >
       <div *ngIf="registrationForm.controls.username.errors.required" >
         <p class="errorForm">Username is required</p>
@@ -71,8 +72,19 @@
       <p class="noErrorForm">Blank</p>
     </div>
 
+    <div class="showMessage-box">
+      <div *ngIf="showMessage" class="messageRegister"
+      [ngClass]="registrationSuccess===true?'successMessage':'errorMessage'">
+        <p>{{messageRegister}}</p>
+      </div>
+      <div *ngIf="!showMessage" class="messageBlank">
+        <p>BlankBlankBlankBlankBlank</p>
+      </div>
+    </div>
+
+
     <div class="buttonsBottom">
-      <button type="submit" class="buttonForm" [disabled]="!registrationForm.valid">
+      <button type="submit" class="buttonForm" [disabled]="!registrationForm.valid || registrationSuccess">
         Register
       </button>
       <button (click)="closeForm()" class="buttonForm">Cancel</button>

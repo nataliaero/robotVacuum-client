@@ -49,8 +49,8 @@ export class ApiClientService {
     return this.searchVal$;
   }
 
-  registerUser(newUser: NewUser) {
-    return this.http.post<NewUser>(this.apiUrl + `/users/register`, newUser, httpOptions).subscribe();
+  registerUser(newUser: NewUser): Observable<any> {
+    return this.http.post<any>(this.apiUrl + `/users/register`, newUser, httpOptions);
   }
 
   // get comments based on id of one robot vacuum

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { NewUser } from '../shared/NewUser';
 import { ApiClientService } from '../api-client.service';
+import { AuthService } from '../auth.service';
 
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
@@ -28,15 +29,31 @@ export class RegisterComponent implements OnInit {
     admin: false
   };
 
+  registrationSuccess: boolean;
+  messageRegister: string;
+  showMessage: boolean;
+
   constructor(private dialogRef: MatDialogRef<RegisterComponent>,
-              private apiClientService: ApiClientService) { }
+              private apiClientService: ApiClientService,
+              private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    this.apiClientService.registerUser(this.registrationForm.value);
-    this.dialogRef.close();
+    this.apiClientService.registerUser(this.registrationForm.value)
+      .subscribe(res => {
+        if (res.err) {
+          this.registrationSuccess = false;
+          this.messageRegister = res.err.message;
+        } else {
+          this.registrationSuccess = true;
+          this.messageRegister = res.status;
+          this.messageRegister += ' Please use your username/password to login.';
+          setTimeout(() => { this.dialogRef.close(); }, 3000);
+        }
+        this.showMessage = true;
+      });
   }
 
   closeForm() {

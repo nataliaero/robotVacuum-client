@@ -5,6 +5,10 @@ orange rgb(238, 120, 70)
 bg dark: #2E3B4E
 orange #EE6002*/
 
+button {
+  cursor: pointer;
+}
+
 .navbarBox {
   position: fixed;
   display:flex;

@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
     dialogConfig.height = '60rem';
     this.loginSuccess = true;
     this.dialog.open(RegisterComponent, dialogConfig);
+    this.dialogRef.close(); // closing login form
   }
 
 }
