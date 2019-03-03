@@ -143,21 +143,38 @@ tr:nth-child(even){
   justify-content: center;
   align-items: flex-start;
   background-color: #fff;
+  padding: 0 5%;
+}
+
+.subcomments-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #fff;
+  padding: 0 5%;
 }
 
 .comments-title {
-  margin: 25px 5% 10px 5%;
+  margin: 25px 0 10px 0;
   font-weight: 700;
 }
 
 .comments-comment {
-  margin: 0 5% 25px 5%;
+  margin: 0 0 25px 0;
 }
 
 .response-box {
   display: flex;
   flex-direction: row;
-  align-self: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 5%;
+}
+
+.new-response-box {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   margin: 0 5% 5px 0;
 }
@@ -238,6 +255,14 @@ form {
   padding: 1rem;
   border-radius: 10px;
   margin-right: 1rem;
+}
+
+.button {
+  cursor: pointer;
+}
+
+.button:hover {
+  font-weight: 700;
 }
 
 @media only screen and (max-width: 900px) {

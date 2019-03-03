@@ -39,7 +39,6 @@ export class RobotVacuumComponent implements OnInit {
     /* tslint:enable:no-string-literal */
     this.getOneRobot(this.id);
     this.getComments(this.id);
-
     this.subscription = this.authService.getUsername()
       .subscribe(name => {
         this.username = name;
@@ -48,7 +47,10 @@ export class RobotVacuumComponent implements OnInit {
 
   getComments(id: number): void {
     this.apiClientService.getComments(id)
-    .subscribe(comments => this.comments = comments);
+    .subscribe(comments => {
+      console.log('comments ', comments)
+      this.comments = comments;
+    });
   }
 
   getOneRobot(id: number): void {

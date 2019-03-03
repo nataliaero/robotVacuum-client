@@ -57,13 +57,24 @@
 
   <div *ngIf="comments && comments.length" class="comments-outerbox">
     <div *ngFor="let comment of comments" class="comments-box">
+
       <p class="comments-title">{{comment.name}} on {{comment.date}}</p>
       <p class="comments-comment">{{comment.comment}}</p>
       <div class="response-box">
-        <p>REPLY</p>
-        <i class="fas fa-chevron-right icon-style"></i>
+
+        <p>REPLYS({{comment.comments.length}})</p>
+        <div class="new-response-box">
+          <p class="button">REPLY</p>
+          <i class="fas fa-chevron-right icon-style"></i>
+        </div>
       </div>
       <hr class="line-comments">
+
+      <div *ngFor= "let subcomment of comment.comments" class="subcomments-box">
+        <p class="comments-title">{{subcomment.name}} on {{subcomment.date}}</p>
+        <p class="comments-comment">{{subcomment.comment}}</p>
+      </div>
+
     </div>
   </div>
 
