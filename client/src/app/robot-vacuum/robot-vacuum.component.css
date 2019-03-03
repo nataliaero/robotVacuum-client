@@ -188,6 +188,7 @@ form {
 
 .comment-input {
   width: 100%;
+  padding: 15px;
   height: 15rem;
   text-align: start;
   padding-left: 15px;

@@ -60,7 +60,7 @@
       <p class="comments-title">{{comment.name}} on {{comment.date}}</p>
       <p class="comments-comment">{{comment.comment}}</p>
       <div class="response-box">
-        <p>RESPONSE</p>
+        <p>REPLY</p>
         <i class="fas fa-chevron-right icon-style"></i>
       </div>
       <hr class="line-comments">
@@ -75,14 +75,14 @@
   <form [formGroup]="commentsForm" (ngSubmit)="onSubmit()">
 
     <div class="comment-input-box">
-      <input
+      <textarea
         class="comment-input"
         type="text"
         placeholder="Type your message..."
         size="2000"
         maxlength="1000"
         formControlName="comment"
-        (keyup)="onKey()">
+        (keyup)="onKey()"></textarea>
     </div>
 
     <div *ngIf="commentsForm.controls.comment.errors" class="error-box">
