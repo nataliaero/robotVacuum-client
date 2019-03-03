@@ -18,16 +18,22 @@ export class RobotVacuumComponent implements OnInit {
 
   robot: Robot;
   id: number;
-  message: Comment = {comment: '', date: '', name: '', author: ''};
+  message: Comment = {_id: '', comment: '', date: '', name: '', author: ''};
+  reply: Comment = {_id: '', comment: '', date: '', name: '', author: ''};
   username: string = undefined;
   subscription: Subscription;
   messageSent: string;
+  replySent: string;
 
   comments: Comment[];
 
   replayComment: boolean[];
 
   commentsForm = new FormGroup({
+    comment: new FormControl('', Validators.required)
+  });
+
+  commentsFormReply = new FormGroup({
     comment: new FormControl('', Validators.required)
   });
 
@@ -70,7 +76,11 @@ export class RobotVacuumComponent implements OnInit {
   }
 
   onClickReply(index: number) {
+    this.commentsFormReply.reset();
     this.replayComment[index] = !this.replayComment[index];
+    for (const i in this.replayComment) {
+      if (i !== index.toString()) { this.replayComment[i] = false; }
+    }
   }
 
   onSubmit() {
@@ -87,6 +97,25 @@ export class RobotVacuumComponent implements OnInit {
     this.commentsForm.reset();
     this.getComments(this.id);
     this.messageSent = 'Your message is posted successfully!';
+  }
+
+  onSubmitReply(i: number) {
+    this.reply.comment = this.commentsFormReply.value.comment;
+    if (this.username) {
+      this.reply.name = this.username;
+    } else {
+      this.reply.name = 'Anonymous';
+    }
+    const idComment = this.comments[i]._id;
+
+    this.apiClientService.replyComment(idComment, this.reply)
+      .subscribe( res => {
+        this.getComments(this.id);
+      });
+    this.commentsFormReply.reset();
+    this.getComments(this.id);
+    this.replySent = 'Your message is posted successfully!';
+
   }
 
 }

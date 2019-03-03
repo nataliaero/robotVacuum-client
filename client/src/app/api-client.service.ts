@@ -64,7 +64,9 @@ export class ApiClientService {
     return this.http.post<Comment>(this.apiUrl + `/robots/robot/${id}/comments`, comment, httpOptions);
   }
 
-
-
+  // post one comment based on id of one robot vacuum
+  replyComment(idComment: string, comment: Comment): Observable<Comment> {
+    return this.http.post<Comment>(this.apiUrl + `/comments/${idComment}/reply`, comment, httpOptions);
+  }
 
 }

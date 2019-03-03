@@ -62,7 +62,7 @@
       <p class="comments-comment">{{comment.comment}}</p>
       <div class="response-box">
 
-        <p>REPLYS({{comment.comments.length}})</p>
+        <p>REPLIES({{comment.comments.length}})</p>
         <div class="new-response-box">
           <p class="button" (click)=onClickReply(i)>REPLY</p>
           <i class="fas fa-chevron-right icon-style"></i>
@@ -75,7 +75,7 @@
           <p *ngIf="username" class="comment-header-title">Leave a comment {{username}}!</p>
           <p *ngIf="!username" class="comment-header-title">Leave a comment!</p>
         </div>
-        <form [formGroup]="commentsForm" (ngSubmit)="onSubmit()" class="width-90">
+        <form [formGroup]="commentsFormReply" (ngSubmit)="onSubmitReply(i)" class="width-90">
 
             <div class="comment-input-box">
               <textarea
@@ -88,18 +88,18 @@
                 (keyup)="onKey()"></textarea>
             </div>
 
-            <div *ngIf="commentsForm.controls.comment.errors" class="error-box">
-              <div *ngIf="commentsForm.controls.comment.errors.required" >
+            <div *ngIf="commentsFormReply.controls.comment.errors" class="error-box">
+              <div *ngIf="commentsFormReply.controls.comment.errors.required" >
                 <p class="errorForm">Comment is required</p>
               </div>
             </div>
 
-            <div *ngIf="messageSent">
-              <p class="messagePosted">{{messageSent}}</p>
+            <div *ngIf="replySent">
+              <p class="messagePosted">{{replySent}}</p>
             </div>
 
             <div class="button-box">
-              <button type="submit" class="buttonForm" [disabled]="!commentsForm.valid">
+              <button type="submit" class="buttonForm" [disabled]="!commentsFormReply.valid">
                 Submit
               </button>
             </div>
