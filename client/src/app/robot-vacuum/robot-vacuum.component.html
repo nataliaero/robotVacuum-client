@@ -107,8 +107,8 @@
           </form>
       </div>
 
-      <div *ngIf="showReplyComment[i]">
-        <div *ngFor= "let subcomment of comment.comments" class="subcomments-box">
+      <div *ngIf="showReplyComment[i]" class="subcomments-box">
+        <div *ngFor= "let subcomment of comment.comments">
           <p class="comments-title">{{subcomment.name}} on {{subcomment.date}}</p>
           <p class="comments-comment">{{subcomment.comment}}</p>
         </div>
