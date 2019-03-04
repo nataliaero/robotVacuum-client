@@ -67,14 +67,15 @@
           <i class="fa fa-trash button" aria-hidden="true"></i>
         </div>
       </div>
-      <div class="response-box">
 
+      <div class="response-box">
         <p class="button" (click)=showReplies(i)>REPLIES({{comment.comments.length}})</p>
         <div class="new-response-box">
           <p class="button" (click)=onClickReply(i)>REPLY</p>
           <i class="fas fa-chevron-right icon-style"></i>
         </div>
       </div>
+
       <hr class="line-comments">
 
       <div *ngIf="replayComment[i]" class="form-box">
@@ -115,12 +116,18 @@
       </div>
 
       <div *ngIf="showReplyComment[i]" class="subcomments-box">
-        <div *ngFor= "let subcomment of comment.comments">
-          <p class="comments-title">{{subcomment.name}} on {{subcomment.date}}</p>
-          <p class="comments-comment">{{subcomment.comment}}</p>
+        <div *ngFor= "let subcomment of comment.comments; index as j">
+          <div class="comment-box">
+            <div>
+              <p class="comments-title">{{subcomment.name}} on {{subcomment.date}}</p>
+              <p class="comments-comment">{{subcomment.comment}}</p>
+            </div>
+            <div class="comment-delete" *ngIf="comment.name===username || username==='admin'" (click)=deleteSubComment(i,j)>
+              <i class="fa fa-trash button" aria-hidden="true"></i>
+            </div>
+          </div>
         </div>
       </div>
-
 
     </div>
   </div>

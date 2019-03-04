@@ -18,8 +18,9 @@ export class RobotVacuumComponent implements OnInit {
 
   robot: Robot;
   id: number;
-  message: Comment = {_id: '', comment: '', date: '', name: '', author: ''};
-  reply: Comment = {_id: '', comment: '', date: '', name: '', author: ''};
+  commentAux: Comment;
+  message: Comment = {_id: '', comment: '', date: '', name: '', author: '', comments: [this.commentAux]};
+  reply: Comment = {_id: '', comment: '', date: '', name: '', author: '', comments: [this.commentAux]};
   username: string = undefined;
   subscription: Subscription;
   messageSent: string;
@@ -132,6 +133,14 @@ export class RobotVacuumComponent implements OnInit {
       .subscribe(res => {
         this.getComments(this.id);
       });
+  }
+
+  deleteSubComment(i: number, j: number) {
+    const idComment = this.comments[i].comments[j]._id;
+    this.apiClientService.deleteComment(idComment)
+    .subscribe(res => {
+      this.getComments(this.id);
+    });
   }
 
 }

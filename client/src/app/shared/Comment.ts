@@ -6,4 +6,5 @@ export class Comment {
   date: string;
   author: string;
   name: string;
+  comments: [Comment];
 }
