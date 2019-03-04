@@ -122,7 +122,7 @@
               <p class="comments-title">{{subcomment.name}} on {{subcomment.date}}</p>
               <p class="comments-comment">{{subcomment.comment}}</p>
             </div>
-            <div class="comment-delete" *ngIf="comment.name===username || username==='admin'" (click)=deleteSubComment(i,j)>
+            <div class="comment-delete" *ngIf="subcomment.name===username || username==='admin'" (click)=deleteSubComment(i,j)>
               <i class="fa fa-trash button" aria-hidden="true"></i>
             </div>
           </div>
