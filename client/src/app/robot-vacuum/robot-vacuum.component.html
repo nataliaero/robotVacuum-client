@@ -58,8 +58,15 @@
   <div *ngIf="comments && comments.length" class="width-80">
     <div *ngFor="let comment of comments; index as i" class="comments-box">
 
-      <p class="comments-title">{{comment.name}} on {{comment.date}}</p>
-      <p class="comments-comment">{{comment.comment}}</p>
+      <div class="comment-box">
+        <div>
+          <p class="comments-title">{{comment.name}} on {{comment.date}}</p>
+          <p class="comments-comment">{{comment.comment}}</p>
+        </div>
+        <div class="comment-delete" *ngIf="comment.name===username || username==='admin'" (click)=deleteComment(i)>
+          <i class="fa fa-trash button" aria-hidden="true"></i>
+        </div>
+      </div>
       <div class="response-box">
 
         <p class="button" (click)=showReplies(i)>REPLIES({{comment.comments.length}})</p>

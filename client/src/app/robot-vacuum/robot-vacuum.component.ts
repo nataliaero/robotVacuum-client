@@ -124,7 +124,14 @@ export class RobotVacuumComponent implements OnInit {
     this.commentsFormReply.reset();
     this.getComments(this.id);
     this.replySent = 'Your message is posted successfully!';
+  }
 
+  deleteComment(i: number) {
+    const idComment = this.comments[i]._id;
+    this.apiClientService.deleteComment(idComment)
+      .subscribe(res => {
+        this.getComments(this.id);
+      });
   }
 
 }

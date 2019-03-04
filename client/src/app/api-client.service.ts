@@ -69,4 +69,9 @@ export class ApiClientService {
     return this.http.post<Comment>(this.apiUrl + `/comments/${idComment}/reply`, comment, httpOptions);
   }
 
+  // delete one comment based on id of one robot vacuum
+  deleteComment(idComment: string): Observable<Comment> {
+    return this.http.delete<Comment>(this.apiUrl + `/comments/${idComment}/delete`, httpOptions);
+  }
+
 }
