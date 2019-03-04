@@ -291,6 +291,15 @@ button, .button {
 @media only screen and (max-width: 900px) {
   .title, .subtitle {
     text-align: center;
+    width: 80vw;
+  }
+  .buttonBuy {
+    background-color: rgba(238, 120, 70);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    align-self: center;
+    margin-top: 25px;
   }
   .card-style {
     display: flex;
