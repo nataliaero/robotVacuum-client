@@ -54,14 +54,14 @@ export class ApiClientService {
   }
 
   // get comments based on id of one robot vacuum
-  getComments(id: number): Observable<Comment[]> {
-    const url = this.apiUrl + `/robots/robot/${id}/comments`;
+  getComments(idRobot: number): Observable<Comment[]> {
+    const url = this.apiUrl + `/robots/robot/${idRobot}/comments`;
     return this.http.get<Comment[]>(url);
   }
 
   // post one comment based on id of one robot vacuum
-  postComment(id: number, comment: Comment): Observable<Comment> {
-    return this.http.post<Comment>(this.apiUrl + `/robots/robot/${id}/comments`, comment, httpOptions);
+  postComment(idRobot: number, comment: Comment): Observable<Comment> {
+    return this.http.post<Comment>(this.apiUrl + `/robots/robot/${idRobot}/comments`, comment, httpOptions);
   }
 
   // post one comment based on id of one robot vacuum
@@ -70,8 +70,8 @@ export class ApiClientService {
   }
 
   // delete one comment based on id of one robot vacuum
-  deleteComment(idComment: string): Observable<Comment> {
-    return this.http.delete<Comment>(this.apiUrl + `/comments/${idComment}/delete`, httpOptions);
+  deleteComment(idComment: string, idRobot: number): Observable<Comment> {
+    return this.http.delete<Comment>(this.apiUrl + `/comments/${idComment}/${idRobot}/delete`, httpOptions);
   }
 
 }

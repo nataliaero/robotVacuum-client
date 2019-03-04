@@ -17,7 +17,7 @@ import { Subscription } from 'rxjs';
 export class RobotVacuumComponent implements OnInit {
 
   robot: Robot;
-  id: number;
+  idRobot: number;
   commentAux: Comment;
   message: Comment = {_id: '', comment: '', date: '', name: '', author: '', comments: [this.commentAux]};
   reply: Comment = {_id: '', comment: '', date: '', name: '', author: '', comments: [this.commentAux]};
@@ -45,18 +45,18 @@ export class RobotVacuumComponent implements OnInit {
 
   ngOnInit() {
     /* tslint:disable:no-string-literal */
-    this.id = this.route.snapshot.params['id'];
+    this.idRobot = this.route.snapshot.params['id'];
     /* tslint:enable:no-string-literal */
-    this.getOneRobot(this.id);
-    this.getComments(this.id);
+    this.getOneRobot(this.idRobot);
+    this.getComments(this.idRobot);
     this.subscription = this.authService.getUsername()
       .subscribe(name => {
         this.username = name;
       });
   }
 
-  getComments(id: number): void {
-    this.apiClientService.getComments(id)
+  getComments(idRobot: number): void {
+    this.apiClientService.getComments(idRobot)
     .subscribe(comments => {
       this.comments = comments;
       this.replayComment = [];
@@ -70,8 +70,8 @@ export class RobotVacuumComponent implements OnInit {
     });
   }
 
-  getOneRobot(id: number): void {
-    this.apiClientService.getOneRobot(id)
+  getOneRobot(idRobot: number): void {
+    this.apiClientService.getOneRobot(idRobot)
     .subscribe(robot => {
       return this.robot = robot;
     });
@@ -100,12 +100,12 @@ export class RobotVacuumComponent implements OnInit {
     } else {
       this.message.name = 'Anonymous';
     }
-    this.apiClientService.postComment(this.id, this.message)
+    this.apiClientService.postComment(this.idRobot, this.message)
       .subscribe( res => {
-        this.getComments(this.id);
+        this.getComments(this.idRobot);
       });
     this.commentsForm.reset();
-    this.getComments(this.id);
+    this.getComments(this.idRobot);
     this.messageSent = 'Your message is posted successfully!';
   }
 
@@ -120,26 +120,26 @@ export class RobotVacuumComponent implements OnInit {
 
     this.apiClientService.replyComment(idComment, this.reply)
       .subscribe( res => {
-        this.getComments(this.id);
+        this.getComments(this.idRobot);
       });
     this.commentsFormReply.reset();
-    this.getComments(this.id);
+    this.getComments(this.idRobot);
     this.replySent = 'Your message is posted successfully!';
   }
 
   deleteComment(i: number) {
     const idComment = this.comments[i]._id;
-    this.apiClientService.deleteComment(idComment)
+    this.apiClientService.deleteComment(idComment, this.idRobot)
       .subscribe(res => {
-        this.getComments(this.id);
+        this.getComments(this.idRobot);
       });
   }
 
   deleteSubComment(i: number, j: number) {
     const idComment = this.comments[i].comments[j]._id;
-    this.apiClientService.deleteComment(idComment)
+    this.apiClientService.deleteComment(idComment, this.idRobot)
     .subscribe(res => {
-      this.getComments(this.id);
+      this.getComments(this.idRobot);
     });
   }
 
