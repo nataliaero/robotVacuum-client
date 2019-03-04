@@ -94,6 +94,7 @@ export class RobotVacuumComponent implements OnInit {
   }
 
   onSubmit() {
+    this.authService.checkJWTtoken();
     this.message.comment = this.commentsForm.value.comment;
     if (this.username) {
       this.message.name = this.username;
@@ -110,6 +111,7 @@ export class RobotVacuumComponent implements OnInit {
   }
 
   onSubmitReply(i: number) {
+    this.authService.checkJWTtoken();
     this.reply.comment = this.commentsFormReply.value.comment;
     if (this.username) {
       this.reply.name = this.username;
@@ -119,7 +121,7 @@ export class RobotVacuumComponent implements OnInit {
     const idComment = this.comments[i]._id;
 
     this.apiClientService.replyComment(idComment, this.reply)
-      .subscribe( res => {
+      .subscribe(() => {
         this.getComments(this.idRobot);
       });
     this.commentsFormReply.reset();
@@ -130,7 +132,7 @@ export class RobotVacuumComponent implements OnInit {
   deleteComment(i: number) {
     const idComment = this.comments[i]._id;
     this.apiClientService.deleteComment(idComment, this.idRobot)
-      .subscribe(res => {
+      .subscribe(() => {
         this.getComments(this.idRobot);
       });
   }
