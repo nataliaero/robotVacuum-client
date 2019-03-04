@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '50rem';
-    dialogConfig.height = '60rem';
+    dialogConfig.height = '65rem';
     this.loginSuccess = true;
     this.dialog.open(RegisterComponent, dialogConfig);
     this.dialogRef.close(); // closing login form

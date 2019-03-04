@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { NewUser } from '../shared/NewUser';
 import { ApiClientService } from '../api-client.service';
-import { AuthService } from '../auth.service';
 
-import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { FormControl, Validators, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
 
 @Component({
@@ -17,6 +16,7 @@ export class RegisterComponent implements OnInit {
   registrationForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
+    confirmPassword: new FormControl('', Validators.required),
     firstname: new FormControl('', Validators.required),
     lastname: new FormControl('', Validators.required),
   });
@@ -36,16 +36,21 @@ export class RegisterComponent implements OnInit {
   stylePassword: string;
 
   constructor(private dialogRef: MatDialogRef<RegisterComponent>,
-              private apiClientService: ApiClientService,
-              private authService: AuthService) { }
+              private apiClientService: ApiClientService) { }
 
   ngOnInit() {
     this.typePassword = 'password';
     this.stylePassword = 'input-password-style';
+    this.registrationForm.setValidators(this.comparePassword());
   }
 
   onSubmit() {
-    this.apiClientService.registerUser(this.registrationForm.value)
+    this.user.username  = this.registrationForm.value.username;
+    this.user.password  = this.registrationForm.value.password;
+    this.user.firstname = this.registrationForm.value.firstname;
+    this.user.lastname  = this.registrationForm.value.lastname;
+
+    this.apiClientService.registerUser(this.user)
       .subscribe(res => {
         if (res.err) {
           this.registrationSuccess = false;
@@ -65,7 +70,6 @@ export class RegisterComponent implements OnInit {
   }
 
   showPassword() {
-    const x = document.getElementById('password');
     if (this.typePassword === 'password') {
       this.typePassword = 'text';
       this.stylePassword = 'input-style';
@@ -73,6 +77,21 @@ export class RegisterComponent implements OnInit {
       this.typePassword = 'password';
       this.stylePassword = 'input-password-style';
     }
+  }
+
+  comparePassword(): ValidatorFn {
+    return (group: FormGroup): ValidationErrors => {
+      /* tslint:disable:no-string-literal */
+      const password1 = group.controls['password'];
+      const password2 = group.controls['confirmPassword'];
+      /* tslint:enable:no-string-literal */
+      if (password1.value !== password2.value) {
+        password2.setErrors({notEquivalent: true});
+      } else {
+        password2.setErrors(null);
+      }
+      return;
+    };
   }
 
 }

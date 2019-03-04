@@ -5,7 +5,7 @@
     <button class="closeButton" mat-dialog-close>&times;</button>
   </div>
 
-  <form [formGroup]="registrationForm"  (ngSubmit)="onSubmit()" class="formLine-box">
+  <form [formGroup]="registrationForm" class="formLine-box">
 
     <div class="formLine">
       <p class="text">First Name:</p>
@@ -72,6 +72,22 @@
       <p class="noErrorForm">Blank</p>
     </div>
 
+    <div class="formLine">
+        <p class="text">Confirm Password:</p>
+        <input
+        class={{stylePassword}}
+        type={{typePassword}}
+        formControlName="confirmPassword">
+      </div>
+      <div *ngIf="registrationForm.controls.confirmPassword.errors" >
+        <div *ngIf="registrationForm.controls.confirmPassword.errors.notEquivalent">
+          <p class="errorForm">Password and Confirm Password didn't match.</p>
+        </div>
+      </div>
+      <div *ngIf="!registrationForm.controls.confirmPassword.errors" >
+        <p class="noErrorForm">Blank</p>
+      </div>
+
     <div class="formLinePassword">
       <input
       type="checkbox"
@@ -91,7 +107,7 @@
 
 
     <div class="buttonsBottom">
-      <button type="submit" class="buttonForm" [disabled]="!registrationForm.valid || registrationSuccess">
+      <button type="submit" (click)="onSubmit()" class="buttonForm" [disabled]="!registrationForm.valid || registrationSuccess">
         Register
       </button>
       <button (click)="closeForm()" class="buttonForm">Cancel</button>
