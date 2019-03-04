@@ -32,12 +32,16 @@ export class RegisterComponent implements OnInit {
   registrationSuccess: boolean;
   messageRegister: string;
   showMessage: boolean;
+  typePassword: string;
+  stylePassword: string;
 
   constructor(private dialogRef: MatDialogRef<RegisterComponent>,
               private apiClientService: ApiClientService,
               private authService: AuthService) { }
 
   ngOnInit() {
+    this.typePassword = 'password';
+    this.stylePassword = 'input-password-style';
   }
 
   onSubmit() {
@@ -58,6 +62,17 @@ export class RegisterComponent implements OnInit {
 
   closeForm() {
     this.dialogRef.close();
+  }
+
+  showPassword() {
+    const x = document.getElementById('password');
+    if (this.typePassword === 'password') {
+      this.typePassword = 'text';
+      this.stylePassword = 'input-style';
+    } else {
+      this.typePassword = 'password';
+      this.stylePassword = 'input-password-style';
+    }
   }
 
 }

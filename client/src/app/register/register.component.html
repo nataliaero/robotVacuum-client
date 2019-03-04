@@ -59,8 +59,8 @@
     <div class="formLine">
       <p class="text">Password:</p>
       <input
-      class="input-style"
-      type="text"
+      class={{stylePassword}}
+      type={{typePassword}}
       formControlName="password">
     </div>
     <div *ngIf="registrationForm.controls.password.errors" >
@@ -70,6 +70,13 @@
     </div>
     <div *ngIf="!registrationForm.controls.password.errors" >
       <p class="noErrorForm">Blank</p>
+    </div>
+
+    <div class="formLinePassword">
+      <input
+      type="checkbox"
+      (click)="showPassword()">
+      <p class="showPassword-text">Show Password</p>
     </div>
 
     <div class="showMessage-box">
