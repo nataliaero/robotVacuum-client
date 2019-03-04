@@ -56,7 +56,7 @@ hr {
 }
 
 p:hover, i:hover {
-  color: rgb(46, 59, 78, 0.85);
+  color: black;
 }
 
 button {
