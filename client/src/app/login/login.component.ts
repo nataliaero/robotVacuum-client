@@ -6,6 +6,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
 
 import { RegisterComponent } from '../register/register.component';
 import { AuthService } from '../auth.service';
+import { ApiClientService } from '../api-client.service';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private dialogRef: MatDialogRef<LoginComponent>,
               private authService: AuthService,
+              private apiClientService: ApiClientService,
               private dialog: MatDialog) { }
 
   ngOnInit() {
@@ -37,6 +39,7 @@ export class LoginComponent implements OnInit {
       } else {
         this.loginSuccess = false;
       }
+      this.apiClientService.setLoginSucess(this.loginSuccess);
     });
   }
 

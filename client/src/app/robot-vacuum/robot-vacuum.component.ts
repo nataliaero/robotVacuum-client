@@ -51,17 +51,21 @@ export class RobotVacuumComponent implements OnInit {
     /* tslint:enable:no-string-literal */
     this.getOneRobot(this.idRobot);
     this.getComments(this.idRobot);
-    // this.authService.loadUserCredentials();
-    this.authService.checkJWTtoken();
-    this.subscription = this.authService.getUsername()
-      .subscribe(name => {
-        this.username = name; // initialise username
-        if (this.username) {
+
+    this.apiClientService.getLoginSucess()
+      .subscribe(loginSuccess => {
+        if (loginSuccess) {
           this.apiClientService.getLike(this.idRobot , this.username)
           .subscribe(liked => {
             this.liked = liked; // initialise liked or unlike
           });
         }
+      });
+
+    this.authService.checkJWTtoken();
+    this.subscription = this.authService.getUsername()
+      .subscribe(name => {
+        this.username = name; // initialise username
       });
 
   }

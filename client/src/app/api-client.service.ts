@@ -20,6 +20,7 @@ export class ApiClientService {
   private apiUrl = 'http://localhost:3000';
 
   searchVal$ = new Subject<string>();
+  loginSuccess$ = new Subject<boolean>();
 
   constructor(private http: HttpClient) { }
 
@@ -49,6 +50,15 @@ export class ApiClientService {
   getSearchVal() {
     return this.searchVal$;
   }
+
+  setLoginSucess(loginSuccess: boolean) {
+    this.loginSuccess$.next(loginSuccess);
+  }
+
+  getLoginSucess() {
+    return this.loginSuccess$;
+  }
+
 
   registerUser(newUser: NewUser): Observable<any> {
     return this.http.post<any>(this.apiUrl + `/users/register`, newUser, httpOptions);
