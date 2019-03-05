@@ -91,6 +91,51 @@ button:hover {
   text-decoration: none;
 }
 
+.table-header {
+  background-color: rgb(238, 120, 70);
+  padding: 12px;
+  text-align: left;
+  color: white;
+  font-family: Montserrat;
+  font-weight: 700;
+}
+
+.table-box {
+  overflow-x: scroll;
+  width: 80%;
+}
+
+table {
+  margin-bottom: 25px;
+}
+
+.table-header-box {
+  background-color: rgb(238, 120, 70);
+  height: 80px;
+}
+
+.table-body-style {
+  color: #2E3B4E;
+}
+
+.table-header {
+  text-align: left;
+  color: white;
+  font-family: Montserrat;
+  font-weight: 700;
+}
+
+th, td {
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  padding: 5px;
+}
+
+tr:nth-child(even){
+  background-color: white;
+}
+
 @media only screen and (max-width: 900px) {
   .title, .subtitle {
     text-align: center;

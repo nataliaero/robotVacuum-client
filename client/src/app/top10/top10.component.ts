@@ -25,6 +25,4 @@ export class Top10Component implements OnInit {
     });
   }
 
-
-
 }

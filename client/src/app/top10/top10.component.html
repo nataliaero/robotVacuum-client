@@ -14,4 +14,79 @@
         <button type="button" class="card-btn" [routerLink]="['/robot',robot._id]">Read more</button>
       </div>
     </div>
+
+    <div class="table-box">
+      <table class="table table-hover center">
+          <thead >
+            <tr class="table-header-box">
+              <th><div style="width: 150px;" class="table-header">Model</div></th>
+              <th *ngFor="let robot of robots" class="table-header"><div style="width: 150px;">{{robot.tableProps.model}}</div></th>
+            </tr>
+          </thead>
+         <tbody class="table-body-style">
+            <tr>
+              <td style="font-weight: 700;" >Weight</td>
+              <td *ngFor="let robot of robots">{{robot.tableProps.weight}}</td>
+            </tr>
+            <tr>
+              <th style="font-weight: 700;">Dimensions</th>
+              <th *ngFor="let robot of robots">{{robot.tableProps.dimensions}}</th>
+            </tr>
+            <tr>
+              <th style="font-weight: 700;">Trash Capacity</th>
+              <th *ngFor="let robot of robots">{{robot.tableProps.capacityTrash}}</th>
+            </tr>
+            <tr>
+              <th style="font-weight: 700;">Water Capacity</th>
+              <th *ngFor="let robot of robots">{{robot.tableProps.capacityWater}}</th>
+            </tr>
+            <tr>
+              <th style="font-weight: 700;">Noise</th>
+              <th *ngFor="let robot of robots">{{robot.tableProps.noise}}</th>
+            </tr>
+            <tr>
+              <th style="font-weight: 700;">Autonomy</th>
+              <th *ngFor="let robot of robots">{{robot.tableProps.autonomy}}</th>
+            </tr>
+            <tr>
+              <th style="font-weight: 700;">Charge Time</th>
+              <th *ngFor="let robot of robots">{{robot.tableProps.chargeTime}}</th>
+            </tr>
+            <tr>
+              <th style="font-weight: 700;">Nominal Power</th>
+              <th *ngFor="let robot of robots">{{robot.tableProps.nominalPower}}</th>
+            </tr>
+            <tr>
+              <th style="font-weight: 700;">Suction Power</th>
+              <th *ngFor="let robot of robots">{{robot.tableProps.suctionPower}}</th>
+            </tr>
+            <tr>
+              <th style="font-weight: 700;">Programmable</th>
+              <th *ngFor="let robot of robots">{{robot.tableProps.suctionPower}}</th>
+            </tr>
+            <tr>
+              <th style="font-weight: 700;">Programmable</th>
+              <th *ngFor="let robot of robots">{{robot.tableProps.avoidsFall}}</th>
+            </tr>
+            <tr>
+              <th style="font-weight: 700;">Anti-Falling Detection</th>
+              <th *ngFor="let robot of robots">{{robot.tableProps.avoidsFall}}</th>
+            </tr>
+            <tr>
+              <th style="font-weight: 700;">Anti-Collision System</th>
+              <th *ngFor="let robot of robots">{{robot.tableProps.anticollisionSystem}}</th>
+            </tr>
+            <tr>
+              <th style="font-weight: 700;">Remote Control</th>
+              <th *ngFor="let robot of robots">{{robot.tableProps.remoteControl}}</th>
+            </tr>
+            <tr>
+              <th style="font-weight: 700;">Mobile App</th>
+              <th *ngFor="let robot of robots">{{robot.tableProps.appMobile}}</th>
+            </tr>
+          </tbody>
+        </table>
+
+    </div>
+
 </div>
