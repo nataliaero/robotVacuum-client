@@ -298,6 +298,16 @@ button, .button {
   font-weight: 700;
 }
 
+.likes-style {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.likes-style2 {
+  font-size: 1.7rem;
+}
+
 .margin-line {
   margin-bottom: 25px;
 }

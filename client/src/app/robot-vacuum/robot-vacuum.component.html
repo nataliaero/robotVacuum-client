@@ -54,11 +54,11 @@
   <hr class="line-comments width-80">
 
   <div class="likes-box width-80 ">
-    <p>NUMBER OF LIKES ({{robot.likes}})</p>
-    <div *ngIf="liked">
+    <p class="likes-style2">NUMBER OF LIKES ({{robot.likes}})</p>
+    <div *ngIf="liked" class="likes-style">
       <i class="fas fa-plus-circle icon-like-style" *ngIf="username && !liked.liked" (click)=addLike()></i>
     </div>
-    <div *ngIf="liked">
+    <div *ngIf="liked" class="likes-style">
       <i class="fas fa-thumbs-up icon-like-style" *ngIf="username && liked.liked" (click)=removeLike()></i>
     </div>
 
