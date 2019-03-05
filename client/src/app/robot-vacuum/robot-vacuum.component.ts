@@ -66,6 +66,12 @@ export class RobotVacuumComponent implements OnInit {
     this.subscription = this.authService.getUsername()
       .subscribe(name => {
         this.username = name; // initialise username
+        if (name) {
+          this.apiClientService.getLike(this.idRobot , this.username)
+          .subscribe(liked => {
+            this.liked = liked; // initialise liked or unlike
+          });
+        }
       });
 
   }
