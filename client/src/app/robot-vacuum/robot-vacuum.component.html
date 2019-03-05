@@ -51,6 +51,21 @@
     </tbody>
   </table>
 
+  <hr class="line-comments width-80">
+
+  <div class="likes-box width-80 ">
+    <p>NUMBER OF LIKES ({{robot.likes}})</p>
+    <div *ngIf="liked">
+      <i class="fas fa-plus-circle icon-like-style" *ngIf="username && !liked.liked" (click)=addLike()></i>
+    </div>
+    <div *ngIf="liked">
+      <i class="fas fa-thumbs-up icon-like-style" *ngIf="username && liked.liked" (click)=removeLike()></i>
+    </div>
+
+  </div>
+
+  <hr class="line-comments width-80 margin-line">
+
   <div *ngIf="comments && comments.length" class="comment-header width-80">
     <p class="comment-header-title">{{comments.length}} COMMENTS</p>
   </div>

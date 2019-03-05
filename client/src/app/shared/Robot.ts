@@ -40,4 +40,5 @@ export class Robot {
     appMobile: string;
   };
   comments: [Comment];
+  likes: number;
 }

@@ -288,6 +288,27 @@ button, .button {
   font-weight: 700;
 }
 
+.likes-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 12px;
+  margin: 5px 0;
+  font-weight: 700;
+}
+
+.margin-line {
+  margin-bottom: 25px;
+}
+
+.icon-like-style {
+  margin-left: 15px;
+  color: rgb(238, 120, 70);
+  font-size: 2rem;
+}
+
+
 @media only screen and (max-width: 900px) {
   .title, .subtitle {
     text-align: center;

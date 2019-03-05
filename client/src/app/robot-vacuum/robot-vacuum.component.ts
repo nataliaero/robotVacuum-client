@@ -4,10 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 import { Robot } from '../shared/Robot';
+import { Like } from '../shared/Like';
 import { Comment } from '../shared/Comment';
 import { ApiClientService } from '../api-client.service';
 import { AuthService } from '../auth.service';
 import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-robot-vacuum',
@@ -25,7 +27,7 @@ export class RobotVacuumComponent implements OnInit {
   subscription: Subscription;
   messageSent: string;
   replySent: string;
-
+  liked: Like;
   comments: Comment[];
 
   replayComment: boolean[];
@@ -49,10 +51,19 @@ export class RobotVacuumComponent implements OnInit {
     /* tslint:enable:no-string-literal */
     this.getOneRobot(this.idRobot);
     this.getComments(this.idRobot);
+    // this.authService.loadUserCredentials();
+    this.authService.checkJWTtoken();
     this.subscription = this.authService.getUsername()
       .subscribe(name => {
-        this.username = name;
+        this.username = name; // initialise username
+        if (this.username) {
+          this.apiClientService.getLike(this.idRobot , this.username)
+          .subscribe(liked => {
+            this.liked = liked; // initialise liked or unlike
+          });
+        }
       });
+
   }
 
   getComments(idRobot: number): void {
@@ -143,6 +154,32 @@ export class RobotVacuumComponent implements OnInit {
     .subscribe(res => {
       this.getComments(this.idRobot);
     });
+  }
+
+  addLike() {
+    this.liked = {liked: true};
+    this.apiClientService.updateLikes(this.idRobot , this.username, this.liked)
+      .subscribe(res => {
+        // get liked or unliked robot
+        this.apiClientService.getLike(this.idRobot , this.username)
+          .subscribe(liked => {
+            this.liked = liked;
+          });
+        this.getOneRobot(this.idRobot); // get number of likes
+      });
+  }
+
+  removeLike() {
+    this.liked = {liked: false};
+    this.apiClientService.updateLikes(this.idRobot , this.username, this.liked)
+      .subscribe(res => {
+        // get liked or unliked robot
+        this.apiClientService.getLike(this.idRobot , this.username)
+          .subscribe(liked => {
+            this.liked = liked;
+          });
+        this.getOneRobot(this.idRobot); // get number of likes
+      });
   }
 
 }

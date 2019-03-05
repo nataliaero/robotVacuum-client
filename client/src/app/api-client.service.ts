@@ -6,6 +6,7 @@ import { Observable, of, Subject, throwError } from 'rxjs';
 import { Robot } from './shared/Robot';
 import { Comment } from './shared/Comment';
 import { NewUser } from './shared/NewUser';
+import { Like } from './shared/Like';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -72,6 +73,16 @@ export class ApiClientService {
   // delete one comment based on id of one robot vacuum
   deleteComment(idComment: string, idRobot: number): Observable<Comment> {
     return this.http.delete<Comment>(this.apiUrl + `/comments/${idComment}/${idRobot}/delete`, httpOptions);
+  }
+
+  // update the number of likes for each robot
+  getLike(idRobot: number , username: string) {
+    return this.http.get<Like>(this.apiUrl + `/robots/robot/${idRobot}/${username}/getLike`, httpOptions);
+  }
+
+  // update the number of likes for each robot
+  updateLikes(idRobot: number , username: string, liked: Like) {
+    return this.http.put<Like>(this.apiUrl + `/robots/robot/${idRobot}/${username}/updateLikes`, liked, httpOptions);
   }
 
 }
