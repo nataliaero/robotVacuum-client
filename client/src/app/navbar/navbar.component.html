@@ -1,0 +1,51 @@
+<div class="navbarBox">
+
+  <div class ="headerBox">
+
+    <div class="logoBox">
+      <button routerLink = "/">
+        <img src="../../assets/images/logoCatGrey.png" alt="logoCat" class="logoCat" >
+      </button>
+      <button routerLink = "/">
+        <p class="titleLogo colorText">My Robot Vacuum</p>
+      </button>
+    </div>
+
+    <div class="menuBox colorText">
+      <button class="subMenuBox" routerLink = "/">
+        <i class="fas fa-home iconStyle"></i>
+        <p class="textMenu">Home</p>
+      </button>
+      <button class="subMenuBox" routerLink = "/top10">
+        <i class="fas fa-star iconStyle"></i>
+        <p class="textMenu">Top 10</p>
+      </button>
+      <button *ngIf="!username" class="subMenuBox" (click)="openForm()">
+        <i class="fas fa-sign-in-alt iconStyle"></i>
+        <p class="textMenu">Sign-in/Login</p>
+      </button>
+      <span *ngIf="username" class="textMenu marginUser">Hi {{username}}!</span>
+      <button *ngIf="username" class="subMenuBox" (click)="logOut()">
+          <i class="fas fa-sign-out-alt iconStyle"></i>
+          <p class="textMenu">Logout</p>
+        </button>
+    </div>
+
+    <div class="menuBox-reduced">
+      <mat-menu #appMenu="matMenu" >
+          <button mat-menu-item routerLink = "/">Home</button>
+          <button mat-menu-item routerLink = "/top10">Top 10</button>
+          <button *ngIf="!username" mat-menu-item (click)="openForm()">Sign-in/Login</button>
+          <button *ngIf="username" mat-menu-item (click)="logOut()">Logout</button>
+        </mat-menu>
+
+        <button mat-icon-button [matMenuTriggerFor]="appMenu" class="menuButton">
+          <i class="fas fa-bars menuBars"></i>
+        </button>
+    </div>
+
+  </div>
+
+  <hr>
+
+</div>

@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 10px/16px */
+  color: #2E3B4E;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  box-sizing: border-box;
+}
+
+.icon-bar {
+  width: 5px;
+}
+
+@media only screen and (max-width: 800px) {
+  html {
+    font-size: 55%; /* 10px/16px */
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  html {
+    font-size: 50%; /* 10px/16px */
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  html {
+    font-size: 45%; /* 10px/16px */
+  }
+}
+
+@media only screen and (max-height: 600px) and (max-width: 450px) {
+  html {
+    font-size: 40%; /* 10px/16px */
+  }
+}
