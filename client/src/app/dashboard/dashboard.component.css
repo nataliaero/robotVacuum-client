@@ -1,0 +1,148 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(236, 238, 235);
+  padding-top: 100px;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.jumbotron {
+  background-image:linear-gradient(
+    to right bottom,
+    rgba(238, 120, 70, 0.8),
+    rgb(236, 238, 235, 0.6)),
+    url("../../assets/images/jumbotronImage.jpg");
+  background-size: cover;
+  background-position: bottom;
+  padding: 0 5rem;
+  width: 80%;
+  height: 35vh;
+  min-height: 150px;
+  display: flex;
+  flex-direction: row;
+}
+
+.jumbotron-text {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  width: 80%;
+}
+
+.jumbotron-title {
+  font-size: 4.5rem;
+}
+
+.jumbotron-subtitle{
+  margin-top: 1rem;
+  font-size: 2rem;
+}
+
+.jumbotron-search {
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem 0;
+}
+
+.robot-search {
+  padding: 1rem 0.5rem;
+  width: 20rem;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  background-color: rgb(236, 238, 235);
+}
+
+.robotList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.card-style {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(238, 120, 70);
+  border-radius: 1px 35px 24px 35px;
+  max-width: 55rem;
+  min-height: 20rem;
+  background-color: #fff;
+  padding: 15px;
+}
+
+.card-image {
+  width: 15rem;
+  margin-right: 20px;
+}
+
+.card-data-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-title {
+  font-size: 2.3rem;
+  margin-bottom: 5px;
+}
+
+.card-btn-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.card-btn {
+  font-family: Montserrat;
+  font-size: 2rem;
+  background-color: rgba(238, 120, 70);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: #e0752f;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .jumbotron {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .jumbotron-text {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 100%;
+  }
+
+}
+
+@media only screen and (max-height: 800px) and (max-width: 800px) {
+  .jumbotron-subtitle {
+    display: none;
+  }
+
+
+}

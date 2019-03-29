@@ -1,0 +1,28 @@
+<div class="dashboard">
+  <div class="jumbotron">
+    <div class="jumbotron-text">
+      <p class="jumbotron-title">Find your Robot Vacuum</p>
+      <p class="jumbotron-subtitle">Best investment of time and money</p>
+    </div>
+
+    <div class="jumbotron-search">
+      <input type="search" class="robot-search" placeholder="Find one..." #box (keyup)="onKey(box.value)">
+    </div>
+  </div>
+
+  <div class="robotList" *ngIf="robots">
+      <div *ngFor="let robot of robots">
+        <div class="card card-style">
+          <img src="{{robot.image}}" alt="robot portay image" class="card-image">
+          <div class="card-data-style">
+            <p class="card-title">{{robot.name}}</p>
+            <p class="card-description">{{robot.description}}</p>
+            <div class="card-btn-box">
+              <button type="button" class="card-btn" routerLink = "robot/{{robot._id}}">Read more</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
