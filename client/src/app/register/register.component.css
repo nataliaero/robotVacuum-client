@@ -1,0 +1,132 @@
+.registerForm {
+  background-color: rgb(236, 238, 235);
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 3rem;
+  background-color: rgb(238, 120, 70);
+}
+
+.register-title {
+  font-family: Montserrat;
+  font-size: 2.5rem;
+  color: rgb(236, 238, 235);
+}
+
+.closeButton {
+  background-color: rgb(236, 238, 235);
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  font-size: 1.5rem;
+  outline: none;
+}
+
+.formLine-box {
+  padding: 0 0 0 5%;
+}
+
+
+.formLine {
+  margin: 8% 0 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.formLinePassword {
+  margin: 5% 0 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.showPassword-text {
+  margin-left: 10px;
+}
+
+.text {
+  font-size: 1.7rem;
+  margin-right: 1.5rem;
+  width: 40%;
+  align-self: center;
+}
+
+.errorForm {
+  font-size: 1rem;
+  color: red;
+  margin-top: 2px;
+}
+
+.noErrorForm {
+  font-size: 1rem;
+  color: rgb(236, 238, 235);
+}
+
+.input-style {
+  font-family: Montserrat;
+  font-size: 1.7rem;
+  width: 50%;
+}
+
+.input-password-style {
+  font-family: Montserrat;
+  font-size: 1.7rem;
+  width: 50%;
+}
+
+.showMessage-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.messageRegister {
+  font-size: 1.5rem;
+  border: solid 1px white;
+  text-align: center;
+  height: 5%;
+  width: 80%;
+  color: white;
+  padding: 5px;
+}
+
+.messageBlank {
+  font-size: 1.5rem;
+  text-align: center;
+  color: rgb(236, 238, 235);
+  height: 5%;
+  width: 80%;
+  padding: 5px;
+}
+
+.successMessage {
+  background-color: rgb(83, 163, 81);
+}
+
+.errorMessage {
+  background-color: rgb(204, 68, 74);
+}
+
+.buttonsBottom {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5% 0;
+}
+
+.buttonForm {
+  background-color: rgb(238, 120, 70);
+  font-family: Montserrat;
+  color: rgb(236, 238, 235);
+  font-size: 1.7rem;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-right: 1rem;
+}

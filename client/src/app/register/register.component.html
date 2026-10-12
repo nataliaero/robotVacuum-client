@@ -1,0 +1,117 @@
+<div class="registerForm">
+
+  <div class="header">
+    <p class="register-title">Register</p>
+    <button class="closeButton" mat-dialog-close>&times;</button>
+  </div>
+
+  <form [formGroup]="registrationForm" class="formLine-box">
+
+    <div class="formLine">
+      <p class="text">First Name:</p>
+      <input
+      class="input-style"
+      type="text"
+      formControlName="firstname">
+    </div>
+    <div *ngIf="registrationForm.controls.firstname.errors" >
+      <div *ngIf="registrationForm.controls.firstname.errors.required" >
+        <p class="errorForm">First name is required</p>
+      </div>
+    </div>
+    <div *ngIf="!registrationForm.controls.firstname.errors" >
+      <p class="noErrorForm">Blank</p>
+    </div>
+
+    <div class="formLine">
+      <p class="text">Last Name:</p>
+      <input
+      class="input-style"
+      type="text"
+      formControlName="lastname">
+    </div>
+    <div *ngIf="registrationForm.controls.lastname.errors" >
+      <div *ngIf="registrationForm.controls.lastname.errors.required" >
+        <p class="errorForm">Last name is required</p>
+      </div>
+    </div>
+    <div *ngIf="!registrationForm.controls.lastname.errors" >
+      <p class="noErrorForm">Blank</p>
+    </div>
+
+    <div class="formLine">
+      <p class="text">Username:</p>
+      <input
+      class="input-style"
+      type="text"
+      formControlName="username">
+    </div>
+
+    <div *ngIf="registrationForm.controls.username.errors" >
+      <div *ngIf="registrationForm.controls.username.errors.required" >
+        <p class="errorForm">Username is required</p>
+      </div>
+    </div>
+    <div *ngIf="!registrationForm.controls.username.errors" >
+      <p class="noErrorForm">Blank</p>
+    </div>
+
+    <div class="formLine">
+      <p class="text">Password:</p>
+      <input
+      class={{stylePassword}}
+      type={{typePassword}}
+      formControlName="password">
+    </div>
+    <div *ngIf="registrationForm.controls.password.errors" >
+      <div *ngIf="registrationForm.controls.password.errors.required" >
+        <p class="errorForm">Password is required</p>
+      </div>
+    </div>
+    <div *ngIf="!registrationForm.controls.password.errors" >
+      <p class="noErrorForm">Blank</p>
+    </div>
+
+    <div class="formLine">
+        <p class="text">Confirm Password:</p>
+        <input
+        class={{stylePassword}}
+        type={{typePassword}}
+        formControlName="confirmPassword">
+      </div>
+      <div *ngIf="registrationForm.controls.confirmPassword.errors" >
+        <div *ngIf="registrationForm.controls.confirmPassword.errors.notEquivalent">
+          <p class="errorForm">Password and Confirm Password didn't match.</p>
+        </div>
+      </div>
+      <div *ngIf="!registrationForm.controls.confirmPassword.errors" >
+        <p class="noErrorForm">Blank</p>
+      </div>
+
+    <div class="formLinePassword">
+      <input
+      type="checkbox"
+      (click)="showPassword()">
+      <p class="showPassword-text">Show Password</p>
+    </div>
+
+    <div class="showMessage-box">
+      <div *ngIf="showMessage" class="messageRegister"
+      [ngClass]="registrationSuccess===true?'successMessage':'errorMessage'">
+        <p>{{messageRegister}}</p>
+      </div>
+      <div *ngIf="!showMessage" class="messageBlank">
+        <p>BlankBlankBlankBlankBlank</p>
+      </div>
+    </div>
+
+
+    <div class="buttonsBottom">
+      <button type="submit" (click)="onSubmit()" class="buttonForm" [disabled]="!registrationForm.valid || registrationSuccess">
+        Register
+      </button>
+      <button (click)="closeForm()" class="buttonForm">Cancel</button>
+    </div>
+  </form>
+
+</div>
