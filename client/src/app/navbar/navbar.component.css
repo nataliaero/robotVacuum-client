@@ -1,0 +1,135 @@
+/* blueColor rgb(104, 180, 201)
+lightBlueColor rgb(172, 212, 220)
+lightGrey rgb(236, 238, 235)
+orange rgb(238, 120, 70)
+bg dark: #2E3B4E
+orange #EE6002*/
+
+button {
+  cursor: pointer;
+}
+
+.navbarBox {
+  position: fixed;
+  display:flex;
+  flex-direction: column;
+}
+
+hr {
+  border:none;
+  height: 20px;
+ 	width: 80%;
+	height: 50px;
+	margin-top: 0;
+	border-bottom: 1px solid #2E3B4E;
+	box-shadow: 0 20px 20px -20px #333;
+  margin: -50px auto 10px;
+}
+
+.headerBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(236, 238, 235);
+  width: 100vw;
+  height: 80px;
+  padding: 0 10%;
+  /* border-bottom: 1px solid #2E3B4E;
+  box-shadow: 0 0 3px 0 #2E3B4E; */
+}
+
+.logoBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logoCat {
+  width: 3.5rem;
+  height: 5rem;
+  margin-right: 2rem;
+}
+
+.colorText {
+  color: rgb(46, 59, 78);
+}
+
+p:hover, i:hover {
+  color: black;
+}
+
+button {
+  border: none;
+  background-color: rgb(236, 238, 235);
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  color: rgb(46, 59, 78);
+}
+
+button:focus {outline:0;}
+
+.titleLogo {
+  font-family: "Rancho";
+  font-size: 4rem;
+}
+
+.menuBox {
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.subMenuBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.iconStyle {
+  font-size: 2rem;
+  margin-right: 0.6rem;
+}
+
+.textMenu{
+  font-size: 2rem;
+}
+
+.marginUser {
+  margin-left: 5px;
+  color: rgb(238, 120, 70);
+}
+
+.menuBox-reduced {
+  display: none;
+}
+.menuBars {
+  font-size: 2.5rem;
+  background-color: rgb(236, 238, 235);
+}
+.menuButton {
+  background-color: rgb(236, 238, 235);
+  border: none;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .menuBox {
+    display: none;
+  }
+  .menuBox-reduced {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .titleLogo {
+    display: none;
+  }
+}

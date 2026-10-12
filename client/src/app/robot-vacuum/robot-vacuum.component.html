@@ -1,0 +1,186 @@
+<div class="robotDashboard" *ngIf="robot">
+  <p class="title">{{robot.name}}</p>
+  <p class="subtitle">{{robot.subtitle}}</p>
+  <button class="buttonBuy">
+    <a href={{robot.webBuy}} target="_blank" class="textButton">{{robot.whereToBuy}}</a>
+  </button>
+  <hr class="line-title">
+  <div class="card card-style card-border">
+    <img src="{{robot.imageCard1}}" alt="image card" class="card-img">
+    <div class="card-data">
+      <p class="card-title">{{robot.title1}}</p>
+      <p [innerHTML]="robot.descriptionCard1" ></p>
+    </div>
+  </div>
+
+  <div class="card card-style card-border2">
+    <div class="card-data">
+      <p class="card-title">{{robot.title2}}</p>
+      <p [innerHTML]="robot.descriptionCard2" ></p>
+    </div>
+    <img src="{{robot.imageCard2}}" alt="image card" class="card-img">
+  </div>
+
+  <div class="card card-style card-border">
+    <img src="{{robot.imageCard3}}" alt="image card" class="card-img">
+    <div class="card-data">
+      <p class="card-title">{{robot.title3}}</p>
+      <p [innerHTML]="robot.descriptionCard3" ></p>
+    </div>
+  </div>
+
+  <table class="table table-hover center">
+    <thead>
+      <tr><th class="table-header">Characteristics</th><th class="table-header">Values</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>Weight</th><th>{{robot.tableProps.weight}}</th></tr>
+      <tr><th>Dimensions</th><th>{{robot.tableProps.dimensions}}</th></tr>
+      <tr><th>Trash Capacity</th><th>{{robot.tableProps.capacityTrash}}</th></tr>
+      <tr><th>Water Capacity</th><th>{{robot.tableProps.capacityWater}}</th></tr>
+      <tr><th>Noise</th><th>{{robot.tableProps.noise}}</th></tr>
+      <tr><th>Autonomy</th><th>{{robot.tableProps.autonomy}}</th></tr>
+      <tr><th>Charge Time</th><th>{{robot.tableProps.chargeTime}}</th></tr>
+      <tr><th>Nominal Power</th><th>{{robot.tableProps.nominalPower}}</th></tr>
+      <tr><th>Suction Power</th><th>{{robot.tableProps.suctionPower}}</th></tr>
+      <tr><th>Programmable</th><th>{{robot.tableProps.programmable}}</th></tr>
+      <tr><th>Anti-fall system</th><th>{{robot.tableProps.avoidsFall}}</th></tr>
+      <tr><th>Anti-collision system</th><th>{{robot.tableProps.anticollisionSystem}}</th></tr>
+      <tr><th>Remote control system</th><th>{{robot.tableProps.remoteControl}}</th></tr>
+      <tr><th>Mobile app</th><th>{{robot.tableProps.appMobile}}</th></tr>
+    </tbody>
+  </table>
+
+  <hr class="line-comments width-80">
+
+  <div class="likes-box width-80 ">
+    <p class="likes-style2">NUMBER OF LIKES ({{robot.likes}})</p>
+    <div *ngIf="liked" class="likes-style">
+      <i class="fas fa-plus-circle icon-like-style" *ngIf="username && !liked.liked" (click)=addLike()></i>
+    </div>
+    <div *ngIf="liked" class="likes-style">
+      <i class="fas fa-thumbs-up icon-like-style" *ngIf="username && liked.liked" (click)=removeLike()></i>
+    </div>
+
+  </div>
+
+  <hr class="line-comments width-80 margin-line">
+
+  <div *ngIf="comments && comments.length" class="comment-header width-80">
+    <p class="comment-header-title">{{comments.length}} COMMENTS</p>
+  </div>
+
+  <div *ngIf="comments && comments.length" class="width-80">
+    <div *ngFor="let comment of comments; index as i" class="comments-box">
+
+      <div class="comment-box">
+        <div>
+          <p class="comments-title">{{comment.name}} on {{comment.date}}</p>
+          <p class="comments-comment">{{comment.comment}}</p>
+        </div>
+        <div class="comment-delete" *ngIf="comment.name===username || username==='admin'" (click)=deleteComment(i)>
+          <i class="fa fa-trash button" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="response-box">
+        <p class="button" (click)=showReplies(i)>REPLIES({{comment.comments.length}})</p>
+        <div class="new-response-box">
+          <p class="button" (click)=onClickReply(i)>REPLY</p>
+          <i class="fas fa-chevron-right icon-style"></i>
+        </div>
+      </div>
+
+      <hr class="line-comments">
+
+      <div *ngIf="replayComment[i]" class="form-box">
+        <div class="comment-header width-90">
+          <p *ngIf="username" class="comment-header-title">Leave a comment {{username}}!</p>
+          <p *ngIf="!username" class="comment-header-title">Leave a comment!</p>
+        </div>
+        <form [formGroup]="commentsFormReply" (ngSubmit)="onSubmitReply(i)" class="width-90">
+
+            <div class="comment-input-box">
+              <textarea
+                class="comment-input"
+                type="text"
+                placeholder="Type your message..."
+                size="2000"
+                maxlength="1000"
+                formControlName="comment"
+                (keyup)="onKey()"></textarea>
+            </div>
+
+            <div *ngIf="commentsFormReply.controls.comment.errors" class="error-box">
+              <div *ngIf="commentsFormReply.controls.comment.errors.required" >
+                <p class="errorForm">Comment is required</p>
+              </div>
+            </div>
+
+            <div *ngIf="replySent">
+              <p class="messagePosted">{{replySent}}</p>
+            </div>
+
+            <div class="button-box">
+              <button type="submit" class="buttonForm" [disabled]="!commentsFormReply.valid">
+                Submit
+              </button>
+            </div>
+
+          </form>
+      </div>
+
+      <div *ngIf="showReplyComment[i]" class="subcomments-box">
+        <div *ngFor= "let subcomment of comment.comments; index as j">
+          <div class="comment-box">
+            <div>
+              <p class="comments-title">{{subcomment.name}} on {{subcomment.date}}</p>
+              <p class="comments-comment">{{subcomment.comment}}</p>
+            </div>
+            <div class="comment-delete" *ngIf="subcomment.name===username || username==='admin'" (click)=deleteSubComment(i,j)>
+              <i class="fa fa-trash button" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="comment-header width-80">
+    <p *ngIf="username" class="comment-header-title">Leave a comment {{username}}!</p>
+    <p *ngIf="!username" class="comment-header-title">Leave a comment!</p>
+  </div>
+
+  <form [formGroup]="commentsForm" (ngSubmit)="onSubmit()" class="width-80">
+
+    <div class="comment-input-box">
+      <textarea
+        class="comment-input"
+        type="text"
+        placeholder="Type your message..."
+        size="2000"
+        maxlength="1000"
+        formControlName="comment"
+        (keyup)="onKey()"></textarea>
+    </div>
+
+    <div *ngIf="commentsForm.controls.comment.errors" class="error-box">
+      <div *ngIf="commentsForm.controls.comment.errors.required" >
+        <p class="errorForm">Comment is required</p>
+      </div>
+    </div>
+
+    <div *ngIf="messageSent">
+      <p class="messagePosted">{{messageSent}}</p>
+    </div>
+
+    <div class="button-box">
+      <button type="submit" class="buttonForm" [disabled]="!commentsForm.valid">
+        Submit
+      </button>
+    </div>
+
+  </form>
+
+</div>
